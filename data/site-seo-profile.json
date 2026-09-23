@@ -1,0 +1,403 @@
+{
+  "profileVersion": "2026.09.23-v1.0",
+  "siteTopic": "机场推荐云：面向中文新手的机场服务资料、上手入口与场景化对比知识库",
+  "domain": "https://jichangtuijian.cloud",
+  "brandName": "机场推荐云",
+  "brandTagline": "从了解方案到配置订阅，清楚开始每一步",
+  "defaultLocale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "primaryKeywords": [
+    "机场推荐",
+    "机场服务",
+    "机场套餐",
+    "机场订阅",
+    "机场新手教程",
+    "机场推荐云"
+  ],
+  "secondaryKeywords": [
+    "性价比机场",
+    "Clash 机场推荐",
+    "机场测评",
+    "机场节点推荐",
+    "便宜机场",
+    "稳定机场",
+    "AI 机场推荐",
+    "机场优惠码",
+    "机场套餐对比",
+    "机场客户端教程",
+    "机场购买前须知",
+    "多设备机场使用"
+  ],
+  "longTailKeywords": [
+    "新手机场推荐从哪里开始",
+    "机场套餐如何按设备数量选择",
+    "机场月付套餐和流量套餐区别",
+    "购买机场前应该了解什么",
+    "机场服务资料页怎么看",
+    "机场订阅支持哪些客户端",
+    "多设备使用机场需要注意什么",
+    "机场流量用完如何处理",
+    "机场节点和套餐怎么对应",
+    "日常使用机场怎样选择流量",
+    "机场服务支持范围是什么",
+    "机场订阅如何开始配置",
+    "AI 工具使用场景怎么选机场",
+    "AI 办公机场推荐多设备需求比较"
+  ],
+  "heroKeywords": [
+    "机场推荐",
+    "当前年份机场推荐",
+    "性价比机场推荐",
+    "Clash 机场推荐",
+    "机场测评",
+    "机场节点推荐",
+    "便宜机场",
+    "稳定机场",
+    "AI 机场推荐",
+    "机场订阅",
+    "机场优惠码"
+  ],
+  "footerKeywords": [
+    "机场推荐",
+    "当前年份机场推荐",
+    "性价比机场推荐",
+    "Clash 机场推荐",
+    "机场测评",
+    "机场节点推荐",
+    "便宜机场",
+    "稳定机场",
+    "AI 机场推荐",
+    "机场订阅",
+    "机场优惠码",
+    "月付机场推荐",
+    "小流量年付机场推荐",
+    "多设备机场推荐"
+  ],
+  "heroSubtitleText": "面向新手提供当前年份机场推荐、性价比机场推荐、Clash 机场推荐与机场测评，覆盖便宜机场、稳定机场、机场节点推荐、机场订阅、AI 机场推荐和机场优惠码，系统化帮助新手全面比较价格、流量、节点地区、多设备兼容规则及购买前须知事项。",
+  "footerParagraph1": "本站专注当前年份机场推荐、性价比机场、Clash 机场测评与机场节点推荐，持续整理便宜机场、稳定机场、AI 机场推荐、机场订阅、价格套餐、优惠码及购买前须知，为用户提供带核验日期的选择参考。",
+  "footerParagraph2": "本站部分链接包含合作或邀请链接，可能会带来少量推广收益。价格、流量、节点、优惠及服务状态均以结算页为准，购买前请务必确认第三方服务商的最新条款与核验日期。",
+  "navigationItems": [
+    {
+      "label": "首页",
+      "url": "/",
+      "type": "home",
+      "isContentSection": false,
+      "isCommercial": true,
+      "primaryKeyword": "机场推荐云",
+      "supportingKeywords": [
+        "机场推荐",
+        "机场服务",
+        "机场套餐",
+        "机场订阅"
+      ],
+      "articleSeeds": [
+        "机场推荐云首页导航与推荐全景"
+      ],
+      "articleCount": 1
+    },
+    {
+      "label": "新手开始",
+      "url": "/start-here/",
+      "type": "guide",
+      "isContentSection": true,
+      "isCommercial": true,
+      "primaryKeyword": "机场新手教程",
+      "supportingKeywords": [
+        "机场怎么开始",
+        "新手机场配置",
+        "机场订阅导入",
+        "客户端选择"
+      ],
+      "articleSeeds": [
+        "新手第一次接触机场：从核心术语到基础认知指南",
+        "机场订阅链接如何获取与导入主流客户端入门教程",
+        "按月付费与按流量计费机场哪种更适合新手第一次尝试",
+        "新手选择机场常踩的五个误区与规避建议",
+        "电脑与手机多设备同时使用机场需要注意哪些并发限制",
+        "机场连接失败排查指南：新手首轮必看的五步检查法",
+        "什么是智能分流与全局代理？新手常见规则配置解析",
+        "机场节点延迟与实际网速有什么区别？看懂测速结果",
+        "选择低门槛轻量备用机场的新手实用指南",
+        "新手选购机场前必须确认的五项服务指标"
+      ],
+      "articleCount": 10
+    },
+    {
+      "label": "服务资料",
+      "url": "/service/",
+      "type": "directory",
+      "isContentSection": true,
+      "isCommercial": true,
+      "primaryKeyword": "机场服务说明",
+      "supportingKeywords": [
+        "机场服务资料",
+        "订阅方案介绍",
+        "机场节点说明",
+        "网络工具资料"
+      ],
+      "articleSeeds": [
+        "如何读懂机场服务资料页：价格、周期与流量核心信息梳理",
+        "机场协议兼容性概览：SS、Trojan 与现代客户端支持度解析",
+        "机场节点地区分布详解：香港、日本、新加坡及美国节点用途",
+        "专线与公网隧道服务差异：网络连接架构与稳定性浅析",
+        "机场服务商运营周期与服务状态核验方法",
+        "不同梯队机场服务商的售后支持与工单响应边界",
+        "流媒体与常见应用解锁能力说明：服务商承诺与实际波动",
+        "机场客户端自研定制版与通用开源客户端的对比与选择",
+        "一次性不限时流量包与周期重置流量包的使用策略",
+        "多地区出口 IP 与固定出口节点的适用场景解析"
+      ],
+      "articleCount": 10
+    },
+    {
+      "label": "方案对比",
+      "url": "/compare/",
+      "type": "comparison",
+      "isContentSection": true,
+      "isCommercial": true,
+      "primaryKeyword": "机场套餐对比",
+      "supportingKeywords": [
+        "性价比机场对比",
+        "便宜机场",
+        "月付与年付对比",
+        "低价套餐"
+      ],
+      "articleSeeds": [
+        "主流机场入门套餐横向对比：每月 20 元预算能买到什么服务",
+        "轻量年付与小流量套餐对比：百元以内年付方案适用性评估",
+        "大流量与多人家庭共享方案对比：重度用户如何算清成本账",
+        "月付对比年付：为什么新手应当优先考虑按月或季度订阅",
+        "IEPL 专线套餐与常规中转套餐价格与体验差异真实对比",
+        "多设备并发支持方案对比：单人多端与家庭合租该怎么选",
+        "备用应急小流量套餐对比：低成本保持网络通畅的选配策略",
+        "全球云与飞猫云核心套餐及定位深度横向对比",
+        "暮光加速与微风网络多媒体及轻量使用场景对比",
+        "常见机场优惠码与折扣活动核验及实际省钱对比",
+        "不同价位段机场流量单价与倍率扣费机制对比",
+        "高性价比方案评测：如何在价格与可用性之间找到平衡点"
+      ],
+      "articleCount": 12
+    },
+    {
+      "label": "设备入口",
+      "url": "/devices/",
+      "type": "device",
+      "isContentSection": true,
+      "isCommercial": true,
+      "primaryKeyword": "多平台设备机场配置教程",
+      "supportingKeywords": [
+        "Windows 机场教程",
+        "Mac 机场教程",
+        "iPhone 机场教程",
+        "Android 机场教程"
+      ],
+      "articleSeeds": [
+        "Windows 系统机场订阅配置指南：从客户端安装到规则启动",
+        "macOS 平台机场客户端推荐与配置最佳实践",
+        "iPhone 与 iPad 平台 Shadowrocket 订阅导入与分流配置",
+        "Android 手机与平板机场客户端设置与电池优化避坑指南",
+        "Clash for Windows 与 Clash Verge 配置详解与常见报错处理",
+        "sing-box 新一代通用内核跨平台客户端上手教程",
+        "跨平台多设备同步机场订阅链接的安全注意事项",
+        "家里软路由与路由器端部署机场订阅的基础概念与适用场景",
+        "办公室双系统切换环境下的代理设置与网络冲突排查",
+        "平板移动端离线下载与大流量任务下的客户端保活设置",
+        "TV 电视盒子与大屏设备安装机场客户端的操作要点",
+        "设备网络权限、系统证书与本地安全软件冲突解决指南"
+      ],
+      "articleCount": 12
+    },
+    {
+      "label": "使用须知",
+      "url": "/before-you-buy/",
+      "type": "notice",
+      "isContentSection": true,
+      "isCommercial": true,
+      "primaryKeyword": "购买机场前须知",
+      "supportingKeywords": [
+        "机场注意事项",
+        "购买前避坑",
+        "退款政策",
+        "隐私安全"
+      ],
+      "articleSeeds": [
+        "购买机场服务前必须确认的八项基础信息清单",
+        "关于退款政策的现实认知：为什么绝大部分机场不支持无理由退款",
+        "网络服务账号与密码安全：避免使用常用密码与两步验证建议",
+        "支付方式与账单安全：加密货币、支付宝与虚拟卡使用要点",
+        "不要一次性盲目买断多年期套餐：服务周期与流动性风险防范",
+        "如何识别过度承诺与虚假宣传：揭秘所谓 100% 稳定的营销谎言",
+        "节点倍率扣费陷阱：看懂 1 倍率、2 倍率与高倍率的区别",
+        "合规使用声明：遵守所在地法律法规与平台使用条款",
+        "机场服务跑路与失联风险防范及数据备份机制",
+        "遇到客服响应缓慢或节点波动时合理的沟通与自检流程"
+      ],
+      "articleCount": 10
+    },
+    {
+      "label": "常见问题",
+      "url": "/faq/",
+      "type": "faq",
+      "isContentSection": true,
+      "isCommercial": true,
+      "primaryKeyword": "机场常见问题解答",
+      "supportingKeywords": [
+        "机场 FAQ",
+        "连接问题排查",
+        "网络工具问答",
+        "机场支持"
+      ],
+      "articleSeeds": [
+        "AI 生成 100 个不重复的 FAQ 问答系统"
+      ],
+      "articleCount": 100
+    },
+    {
+      "label": "关于本站",
+      "url": "/about/",
+      "type": "trust",
+      "isContentSection": false,
+      "isCommercial": false,
+      "primaryKeyword": "机场推荐云关于与编辑原则",
+      "supportingKeywords": [
+        "编辑原则",
+        "评测方法",
+        "纠错政策",
+        "合作披露"
+      ],
+      "articleSeeds": [
+        "关于机场推荐云与测评编辑说明"
+      ],
+      "articleCount": 1
+    }
+  ],
+  "additionalCommercialSections": [
+    {
+      "label": "机场推荐",
+      "url": "/recommendations/",
+      "primaryKeyword": "机场推荐",
+      "title": "当前年份机场推荐榜：套餐、价格与适合人群比较"
+    },
+    {
+      "label": "性价比机场",
+      "url": "/recommendations/value/",
+      "primaryKeyword": "性价比机场推荐",
+      "title": "性价比机场推荐：按预算与流量选择指南"
+    },
+    {
+      "label": "Clash 机场推荐",
+      "url": "/recommendations/clash/",
+      "primaryKeyword": "Clash 机场推荐",
+      "title": "Clash 机场推荐：兼容性、套餐与节点选择"
+    },
+    {
+      "label": "AI 机场推荐",
+      "url": "/recommendations/ai/",
+      "primaryKeyword": "AI 机场推荐",
+      "title": "AI 机场推荐：ChatGPT、Claude、Gemini 等工具的节点与套餐选择"
+    },
+    {
+      "label": "机场排行榜",
+      "url": "/rankings/",
+      "primaryKeyword": "机场排行榜",
+      "title": "机场排行榜与排序说明：编辑展示原则与合作关系透明披露"
+    },
+    {
+      "label": "节点推荐",
+      "url": "/nodes/",
+      "primaryKeyword": "机场节点推荐",
+      "title": "机场节点推荐与选择指南：地区、延迟与线路说明"
+    },
+    {
+      "label": "机场优惠码",
+      "url": "/coupons/",
+      "primaryKeyword": "机场优惠码",
+      "title": "机场优惠码汇总与核验：新用户折扣与省钱建议"
+    },
+    {
+      "label": "机场测评",
+      "url": "/reviews/",
+      "primaryKeyword": "机场测评",
+      "title": "机场测评汇总：逐个查看价格、套餐与节点资料"
+    },
+    {
+      "label": "服务资料库",
+      "url": "/providers/",
+      "primaryKeyword": "机场服务资料库",
+      "title": "机场服务资料库：27 家服务商信息与核验索引"
+    }
+  ],
+  "faqKeywordCount": 100,
+  "faqClusters": [
+    {
+      "id": 1,
+      "name": "机场推荐、选择方法与适用人群",
+      "quota": 18
+    },
+    {
+      "id": 2,
+      "name": "Clash 客户端、订阅、兼容与常见问题",
+      "quota": 14
+    },
+    {
+      "id": 3,
+      "name": "SS / Shadowsocks 协议、兼容与基础知识",
+      "quota": 10
+    },
+    {
+      "id": 4,
+      "name": "Trojan 网络协议、客户端与常见问题",
+      "quota": 10
+    },
+    {
+      "id": 5,
+      "name": "“梯子”口语搜索、服务选择与风险提示",
+      "quota": 8
+    },
+    {
+      "id": 6,
+      "name": "节点、地区、延迟、线路和倍率",
+      "quota": 14
+    },
+    {
+      "id": 7,
+      "name": "套餐、价格、流量、付款周期和优惠码",
+      "quota": 10
+    },
+    {
+      "id": 8,
+      "name": "多设备、订阅导入、客户端和系统兼容",
+      "quota": 8
+    },
+    {
+      "id": 9,
+      "name": "故障排查、退款、隐私、安全与购买前须知",
+      "quota": 8
+    }
+  ],
+  "faqPageSize": 20,
+  "titlePatterns": {
+    "home": "当前年份机场推荐：Clash 机场测评、性价比与节点选择｜机场推荐云",
+    "recommendations": "当前年份机场推荐榜：套餐、价格与适合人群比较｜机场推荐云",
+    "value": "性价比机场推荐：按预算与流量选择｜机场推荐云",
+    "clash": "Clash 机场推荐：兼容性、套餐与节点选择｜机场推荐云",
+    "reviews": "机场测评汇总：逐个查看价格、套餐与节点资料｜机场推荐云",
+    "provider": "{provider}机场测评：价格、套餐、节点与适合人群｜机场推荐云",
+    "about": "关于我们：机场推荐与测评编辑说明｜机场推荐云",
+    "contact": "联系我们：机场资料纠错与合作｜机场推荐云"
+  },
+  "descriptionPatterns": {
+    "home": "机场推荐云专注当前年份机场推荐、性价比机场、Clash 机场测评与节点选择指南，为新手整理 27 家服务商真实资料、优惠码与购买前须知，透明呈现套餐、价格与适用场景。",
+    "provider": "全方位了解{provider}机场：整理其套餐起步价、流量配额、线路特点、优惠码及使用注意事项，提供带核验日期的中立选型参考。"
+  },
+  "protectedBrandTerms": [
+    "机场推荐云",
+    "jichangtuijian.cloud",
+    "全球云",
+    "飞猫云",
+    "暮光加速",
+    "微风网络"
+  ],
+  "inactiveKeywords": [],
+  "sourceUpdatedAt": "2026-09-23"
+}

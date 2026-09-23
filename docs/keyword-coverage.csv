@@ -1,0 +1,110 @@
+﻿keyword,normalized_keyword,impressions,trend,cluster,intent,public_status,primary_url,supporting_urls,placement_plan,notes
+机场推荐,机场推荐,99999,[user_priority],商业推荐与选型,commercial,公开使用,/recommendations/,/ /recommendations/ /service/ /compare/,Hero / H1 / 导航 / 核心推荐落地页,用户填报核心或指定种子词
+机场服务,机场服务,99999,[user_priority],新手指南与购买决策,informational,公开使用,/service/,/ /recommendations/ /service/ /compare/,Hero / H1 / 导航 / 核心推荐落地页,用户填报核心或指定种子词
+机场套餐,机场套餐,99999,[user_priority],新手指南与购买决策,commercial,公开使用,/compare/,/ /recommendations/ /service/ /compare/,Hero / H1 / 导航 / 核心推荐落地页,用户填报核心或指定种子词
+机场订阅,机场订阅,99999,[user_priority],客户端与协议知识,informational,公开使用,/start-here/,/ /recommendations/ /service/ /compare/,Hero / H1 / 导航 / 核心推荐落地页,用户填报核心或指定种子词
+机场新手教程,机场新手教程,99999,[user_priority],新手指南与购买决策,informational,公开使用,/start-here/,/ /recommendations/ /service/ /compare/,Hero / H1 / 导航 / 核心推荐落地页,用户填报核心或指定种子词
+机场推荐云,机场推荐云,99999,[user_priority],品牌总入口,brand,公开使用,/,/ /recommendations/ /service/ /compare/,Hero / H1 / 导航 / 核心推荐落地页,用户填报核心或指定种子词
+AI 机场推荐,ai机场推荐,99999,[user_priority],商业推荐与选型,commercial,公开使用,/recommendations/ai/,/ /recommendations/ /service/ /compare/,Hero / H1 / 导航 / 核心推荐落地页,用户填报核心或指定种子词
+AI 工具使用场景怎么选机场,ai工具使用场景怎么选机场,99999,[user_priority],商业推荐与选型,informational,公开使用,/recommendations/ai-tools/,/ /recommendations/ /service/ /compare/,Hero / H1 / 导航 / 核心推荐落地页,用户填报核心或指定种子词
+AI 办公机场推荐,ai办公机场推荐,99999,[user_priority],商业推荐与选型,commercial,公开使用,/recommendations/ai-office/,/ /recommendations/ /service/ /compare/,Hero / H1 / 导航 / 核心推荐落地页,用户填报核心或指定种子词
+最新机场推荐,最新机场推荐,28,[28],综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+最新机场,最新机场,76,"[23,53]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+猫梦博客 机场推荐,猫梦博客机场推荐,87,"[20,31,36]",内部参考研究,competitor_reference,内部隔离（不用于公开页面）,N/A,/recommendations/ /compare/ /start-here/,不公开展示，仅作内部竞品及研究隔离,命中参考发布者黑名单，禁止出现于公开产物
+飞机场节点 推荐,飞机场节点推荐,113,"[26,22,42,23]",节点与线路说明,informational,公开使用,/nodes/,/recommendations/ /compare/ /start-here/,节点推荐与地区选择指南,网络节点选型
+机场稳定,机场稳定,118,"[28,20,21,24,25]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+星维机场,星维机场,118,"[51,67]",内部参考研究,competitor_reference,内部隔离（不用于公开页面）,N/A,/recommendations/ /compare/ /start-here/,不公开展示，仅作内部竞品及研究隔离,命中参考发布者黑名单，禁止出现于公开产物
+机场 梯子,机场梯子,122,"[20,25,22,22,33]",网络工具与常识说明,informational,公开使用（中立口语解释语境）,/faq/,/recommendations/ /compare/ /start-here/,FAQ 与新手术语解释，中立网络服务语境,中立解释口语搜索词与使用注意事项
+梯子测评,梯子测评,142,"[22,20,20,21,28,31]",网络工具与常识说明,informational,公开使用（中立口语解释语境）,/faq/,/recommendations/ /compare/ /start-here/,FAQ 与新手术语解释，中立网络服务语境,中立解释口语搜索词与使用注意事项
+靠谱机场,靠谱机场,188,"[22,25,23,27,22,21,25,23]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场排行榜,机场排行榜,213,"[22,29,22,28,27,45,40]",商业推荐与选型,commercial,公开使用,/rankings/,/recommendations/ /compare/ /start-here/,排行榜落地页（说明排序逻辑）,高意图候选词
+gaterank,gaterank,228,"[21,27,26,25,40,33,29,27]",内部参考研究,competitor_reference,内部隔离（不用于公开页面）,N/A,/recommendations/ /compare/ /start-here/,不公开展示，仅作内部竞品及研究隔离,命中参考发布者黑名单，禁止出现于公开产物
+稳定节点,稳定节点,232,"[27,28,27,28,28,22,23,27,22]",节点与线路说明,informational,公开使用,/nodes/,/recommendations/ /compare/ /start-here/,节点推荐与地区选择指南,网络节点选型
+网络机场,网络机场,233,"[52,29,28,37,50,37]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+老牌机场推荐,老牌机场推荐,246,"[25,23,27,31,21,24,39,28,28]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+顶级机场vpn,顶级机场vpn,247,"[30,25,24,26,26,30,55,31]",客户端与协议知识,informational,公开使用,/devices/,/recommendations/ /compare/ /start-here/,设备与协议知识库,协议中立知识词
+纯净机场,纯净机场,250,"[23,20,28,27,27,29,20,44,32]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+专线机场推荐,专线机场推荐,254,"[26,36,28,37,29,32,37,29]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+梯子翻推荐,梯子翻推荐,275,"[38,72,49,56,60]",网络工具与常识说明,informational,公开使用（中立口语解释语境）,/faq/,/recommendations/ /compare/ /start-here/,FAQ 与新手术语解释，中立网络服务语境,中立解释口语搜索词与使用注意事项
+机场推荐 流量计费,机场推荐流量计费,278,"[29,22,28,27,21,33,26,30,35,27]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+直连机场,直连机场,305,"[21,36,25,27,27,20,31,26,24,22,21,25]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+廉价机场,廉价机场,307,"[30,32,23,24,26,21,37,30,24,31,29]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场推荐github,机场推荐github,312,"[29,35,30,20,35,38,52,36,37]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场榜,机场榜,350,"[29,46,33,45,28,26,22,22,29,32,38]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+github 机场推荐,github机场推荐,353,"[28,24,28,31,23,34,35,29,50,29,42]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+极简机场,极简机场,370,"[23,40,44,33,21,35,32,28,30,36,48]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场大全,机场大全,375,"[25,37,23,32,49,45,47,54,63]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场排名,机场排名,376,"[24,32,33,21,24,32,38,37,41,36,58]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场vpn推荐,机场vpn推荐,393,"[33,23,27,32,33,30,22,40,36,41,44,32]",客户端与协议知识,informational,公开使用,/devices/,/recommendations/ /compare/ /start-here/,设备与协议知识库,协议中立知识词
+便宜好用的机场,便宜好用的机场,395,"[31,29,30,34,30,38,36,32,34,43,58]",商业推荐与选型,commercial,公开使用,/recommendations/value/,/recommendations/ /compare/ /start-here/,性价比机场与方案对比落地页,核心转化意图词
+爱机场,爱机场,431,"[25,33,26,46,56,29,41,33,50,46,46]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+梯子翻墙,梯子翻墙,442,"[44,49,42,47,38,39,35,32,35,27,27,27]",合规隔离,non_compliant,内部研究（不用于公开页面）,N/A,/recommendations/ /compare/ /start-here/,不用于公开页面,不符合网络服务合规表达边界
+机场网站,机场网站,444,"[27,24,27,32,20,49,42,47,39,39,66,32]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+翻墙梯子推荐,翻墙梯子推荐,448,"[33,46,39,48,44,30,26,34,31,25,54,38]",合规隔离,non_compliant,内部研究（不用于公开页面）,N/A,/recommendations/ /compare/ /start-here/,不用于公开页面,不符合网络服务合规表达边界
+机场排行,机场排行,457,"[25,30,30,33,43,57,57,52,35,51,44]",商业推荐与选型,commercial,公开使用,/rankings/,/recommendations/ /compare/ /start-here/,排行榜落地页（说明排序逻辑）,高意图候选词
+好用机场,好用机场,462,"[38,23,27,33,20,27,44,53,49,79,69]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场 vpn,机场vpn,506,"[31,27,20,26,26,21,53,56,62,60,67,57]",客户端与协议知识,informational,公开使用,/devices/,/recommendations/ /compare/ /start-here/,设备与协议知识库,协议中立知识词
+推荐机场,推荐机场,534,"[34,23,20,36,33,35,40,61,46,69,79,58]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+好用的机场推荐,好用的机场推荐,562,"[47,36,41,44,39,64,37,33,62,41,77,41]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+github机场推荐,github机场推荐,585,"[54,43,71,25,53,24,55,45,46,31,53,85]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+稳定的机场,稳定的机场,604,"[52,60,52,47,57,29,51,46,46,37,63,64]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+专线机场,专线机场,618,"[63,54,49,36,58,45,61,84,48,40,40,40]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+稳定机场推荐,稳定机场推荐,666,"[44,45,39,45,60,47,59,55,52,46,82,92]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+试用机场,试用机场,669,"[53,59,53,87,39,45,41,47,41,53,97,54]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+性价比机场推荐,性价比机场推荐,711,"[72,65,74,56,55,43,42,52,72,61,57,62]",商业推荐与选型,commercial,公开使用,/recommendations/value/,/recommendations/ /compare/ /start-here/,性价比机场与方案对比落地页,核心转化意图词
+clash 机场推荐,clash机场推荐,715,"[48,47,51,81,47,60,129,58,62,39,40,53]",客户端与协议,commercial_informational,公开使用,/recommendations/clash/,/recommendations/ /compare/ /start-here/,Clash 落地页与教程,高展现客户端意图词
+小机场,小机场,716,"[43,49,48,44,50,69,54,51,51,53,103,101]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场推荐便宜,机场推荐便宜,724,"[38,39,39,38,48,40,44,102,95,64,87,90]",商业推荐与选型,commercial,公开使用,/recommendations/value/,/recommendations/ /compare/ /start-here/,性价比机场与方案对比落地页,核心转化意图词
+机场推荐 github,机场推荐github,744,"[55,40,46,61,37,61,49,82,67,72,94,80]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+vpn 机场,vpn机场,783,"[66,50,63,47,61,57,72,69,79,81,66,72]",客户端与协议知识,informational,公开使用,/devices/,/recommendations/ /compare/ /start-here/,设备与协议知识库,协议中立知识词
+机场购买,机场购买,801,"[43,44,33,57,57,59,64,67,99,85,84,109]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场云,机场云,809,"[50,49,49,52,57,53,74,61,71,75,89,129]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+github 机场,github机场,816,"[61,64,71,80,76,66,62,58,55,74,66,83]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+家宽机场,家宽机场,826,"[55,56,37,74,78,80,73,69,72,86,64,82]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+github机场,github机场,874,"[60,55,57,61,78,50,71,63,85,81,98,115]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+赔钱机场优惠码,赔钱机场优惠码,888,"[32,71,74,59,85,75,79,78,82,56,94,103]",商业推荐与选型,commercial,公开使用,/coupons/,/recommendations/ /compare/ /start-here/,优惠码核验与汇总页,强转化意图词
+vpn机场推荐,vpn机场推荐,899,"[75,92,75,72,72,72,55,72,71,86,61,96]",客户端与协议知识,informational,公开使用,/devices/,/recommendations/ /compare/ /start-here/,设备与协议知识库,协议中立知识词
+机场推荐 clash免费,机场推荐clash免费,922,"[41,47,68,62,102,77,74,78,89,78,112,94]",客户端与协议,commercial_informational,公开使用,/recommendations/clash/,/recommendations/ /compare/ /start-here/,Clash 落地页与教程,高展现客户端意图词
+高速机场,高速机场,956,"[87,108,60,85,86,65,103,61,51,73,80,97]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+免费试用机场,免费试用机场,1000,"[113,63,75,63,76,97,61,93,95,66,98,100]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+公益机场,公益机场,1031,"[97,85,61,84,112,67,75,83,88,103,72,104]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场测速,机场测速,1044,"[90,72,81,77,83,97,89,92,83,95,97,88]",服务评测与分析,informational_commercial,公开使用,/reviews/,/recommendations/ /compare/ /start-here/,评测汇总与独立测评页,高展现评测词
+jichang,jichang,1103,"[61,81,84,74,88,80,115,84,120,103,99,114]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场评测,机场评测,1213,"[76,77,105,81,115,97,82,113,96,101,128,142]",服务评测与分析,informational_commercial,公开使用,/reviews/,/recommendations/ /compare/ /start-here/,评测汇总与独立测评页,高展现评测词
+云机场,云机场,1258,"[133,109,108,89,102,86,109,105,113,74,114,116]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场节点推荐,机场节点推荐,1271,"[105,90,115,105,108,86,106,92,99,79,149,137]",节点与线路说明,informational,公开使用,/nodes/,/recommendations/ /compare/ /start-here/,节点推荐与地区选择指南,网络节点选型
+机场 推荐,机场推荐,1314,"[133,68,96,71,116,97,101,107,146,123,128,128]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+飞机场推荐,飞机场推荐,1406,"[108,108,128,105,119,126,119,103,124,133,134,99]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场代理,机场代理,1459,"[77,103,87,123,80,81,133,151,142,155,167,160]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+性价 比高 机场,性价比高机场,1533,"[125,123,115,110,143,146,145,118,117,113,131,147]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+免费机场推荐,免费机场推荐,1600,"[106,119,90,163,129,141,140,124,128,144,121,195]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+一毛机场,一毛机场,1661,"[100,120,103,126,162,105,137,115,133,180,181,199]",内部参考研究,competitor_reference,内部隔离（不用于公开页面）,N/A,/recommendations/ /compare/ /start-here/,不公开展示，仅作内部竞品及研究隔离,命中参考发布者黑名单，禁止出现于公开产物
+低价机场,低价机场,1744,"[150,111,131,142,162,127,156,161,180,155,144,125]",商业推荐与选型,commercial,公开使用,/recommendations/value/,/recommendations/ /compare/ /start-here/,性价比机场与方案对比落地页,核心转化意图词
+超实惠机场,超实惠机场,1839,"[196,218,157,140,163,138,152,115,115,140,119,186]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+低调机场,低调机场,1895,"[184,186,188,145,155,119,155,113,135,181,204,130]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+稳定机场,稳定机场,2225,"[201,174,161,186,182,166,143,189,209,151,233,230]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+一份机场,一份机场,2809,"[168,212,202,208,230,242,239,214,263,266,288,277]",内部参考研究,competitor_reference,内部隔离（不用于公开页面）,N/A,/recommendations/ /compare/ /start-here/,不公开展示，仅作内部竞品及研究隔离,命中参考发布者黑名单，禁止出现于公开产物
+好用的机场,好用的机场,2819,"[273,212,225,220,246,218,197,244,244,209,295,236]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+翻墙机场,翻墙机场,2992,"[198,233,187,220,277,313,322,214,266,211,296,255]",合规隔离,non_compliant,内部研究（不用于公开页面）,N/A,/recommendations/ /compare/ /start-here/,不用于公开页面,不符合网络服务合规表达边界
+节点推荐,节点推荐,4094,"[350,261,312,327,428,314,305,333,384,337,380,363]",节点与线路说明,informational,公开使用,/nodes/,/recommendations/ /compare/ /start-here/,节点推荐与地区选择指南,网络节点选型
+机场测评,机场测评,4284,"[309,224,284,317,426,385,346,304,378,317,519,475]",服务评测与分析,informational_commercial,公开使用,/reviews/,/recommendations/ /compare/ /start-here/,评测汇总与独立测评页,高展现评测词
+翻墙梯子,翻墙梯子,4431,"[382,318,331,411,452,377,377,314,409,382,309,369]",合规隔离,non_compliant,内部研究（不用于公开页面）,N/A,/recommendations/ /compare/ /start-here/,不用于公开页面,不符合网络服务合规表达边界
+性价比飞机场,性价比飞机场,4872,"[374,400,368,379,427,396,362,358,403,418,419,568]",商业推荐与选型,commercial,公开使用,/recommendations/value/,/recommendations/ /compare/ /start-here/,性价比机场与方案对比落地页,核心转化意图词
+vpn梯子,vpn梯子,5138,"[435,493,429,475,453,438,453,407,474,391,317,373]",网络工具与常识说明,informational,公开使用（中立口语解释语境）,/faq/,/recommendations/ /compare/ /start-here/,FAQ 与新手术语解释，中立网络服务语境,中立解释口语搜索词与使用注意事项
+机场订阅,机场订阅,5369,"[465,409,401,391,349,335,436,431,476,547,518,611]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+vpn机场,vpn机场,5554,"[373,327,383,341,351,367,508,499,541,589,636,639]",客户端与协议知识,informational,公开使用,/devices/,/recommendations/ /compare/ /start-here/,设备与协议知识库,协议中立知识词
+便宜机场,便宜机场,6176,"[440,560,648,476,501,392,505,485,501,547,539,582]",商业推荐与选型,commercial,公开使用,/recommendations/value/,/recommendations/ /compare/ /start-here/,性价比机场与方案对比落地页,核心转化意图词
+牛逼机场,牛逼机场,6583,"[665,531,438,587,538,423,473,475,474,655,670,654]",合规隔离,non_compliant,内部研究（不用于公开页面）,N/A,/recommendations/ /compare/ /start-here/,不用于公开页面,不符合网络服务合规表达边界
+vpn节点,vpn节点,6716,"[578,556,581,645,658,508,536,515,544,569,470,556]",节点与线路说明,informational,公开使用,/nodes/,/recommendations/ /compare/ /start-here/,节点推荐与地区选择指南,网络节点选型
+飞机场,飞机场,7240,"[659,541,651,570,634,552,603,532,657,550,667,624]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场vpn,机场vpn,7346,"[390,407,505,352,397,407,680,888,775,838,881,826]",客户端与协议知识,informational,公开使用,/devices/,/recommendations/ /compare/ /start-here/,设备与协议知识库,协议中立知识词
+顶级机场,顶级机场,8444,"[775,682,640,654,703,698,543,606,586,582,1213,762]",综合推荐与教程,commercial_informational,公开使用,/recommendations/,/recommendations/ /compare/ /start-here/,综合推荐文章与栏目页,通用机场推荐意图
+机场节点,机场节点,9627,"[742,652,792,717,712,661,842,853,863,937,977,879]",节点与线路说明,informational,公开使用,/nodes/,/recommendations/ /compare/ /start-here/,节点推荐与地区选择指南,网络节点选型
+机场推荐 clash,机场推荐clash,10065,"[1271,1204,1295,1371,1566,1579,515,389,290,206,159,220]",客户端与协议,commercial_informational,公开使用,/recommendations/clash/,/recommendations/ /compare/ /start-here/,Clash 落地页与教程,高展现客户端意图词
+梯子推荐,梯子推荐,13945,"[1145,1108,993,1214,1273,1330,1123,1100,1070,1070,1230,1289]",网络工具与常识说明,informational,公开使用（中立口语解释语境）,/faq/,/recommendations/ /compare/ /start-here/,FAQ 与新手术语解释，中立网络服务语境,中立解释口语搜索词与使用注意事项
+机场梯子,机场梯子,14129,"[1585,1419,1459,1669,2220,2022,914,654,554,603,516,514]",网络工具与常识说明,informational,公开使用（中立口语解释语境）,/faq/,/recommendations/ /compare/ /start-here/,FAQ 与新手术语解释，中立网络服务语境,中立解释口语搜索词与使用注意事项
+trojan,trojan,26814,"[2545,2236,2201,2179,2204,2376,2213,2196,2107,2140,2151,2266]",客户端与协议知识,informational,公开使用,/devices/,/recommendations/ /compare/ /start-here/,设备与协议知识库,协议中立知识词
+性价比机场,性价比机场,28260,"[2168,2298,2270,2355,2450,2457,2078,2095,2503,2364,2542,2680]",商业推荐与选型,commercial,公开使用,/recommendations/value/,/recommendations/ /compare/ /start-here/,性价比机场与方案对比落地页,核心转化意图词
+ssr,ssr,30934,"[2817,2613,2576,2619,2549,2425,2444,2375,2265,2532,2778,2941]",客户端与协议知识,informational,公开使用,/devices/,/recommendations/ /compare/ /start-here/,设备与协议知识库,协议中立知识词
+科学上网,科学上网,37839,"[3492,3397,3201,3400,3439,3112,2899,2745,3185,2897,2951,3121]",合规隔离,non_compliant,内部研究（不用于公开页面）,N/A,/recommendations/ /compare/ /start-here/,不用于公开页面,不符合网络服务合规表达边界
+三毛机场,三毛机场,91034,"[6415,7197,7116,7175,7572,5814,5858,6553,6929,8741,10931,10733]",内部参考研究,competitor_reference,内部隔离（不用于公开页面）,N/A,/recommendations/ /compare/ /start-here/,不公开展示，仅作内部竞品及研究隔离,命中参考发布者黑名单，禁止出现于公开产物
