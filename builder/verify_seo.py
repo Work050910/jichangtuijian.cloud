@@ -143,16 +143,16 @@ for root_dir, dirs, files in os.walk(public_dir):
 
 check(len(internal_hits) == 0, f"Internal fields strictly isolated from public output (hits: {len(internal_hits)})")
 
-# Test 8: Character Count Verification (800 - 1200 Chinese characters)
-print("\n--- Test 8: Chinese Character Count Verification (800~1200) ---")
+# Test 8: Character Count Verification (Recommendation articles <= 2500 chars, Provider reviews 800~1200)
+print("\n--- Test 8: Chinese Character Count Verification ---")
 with open(os.path.join(data_dir, "navigation_articles.json"), "r", encoding="utf-8") as f:
     nav_articles = json.load(f)
 
 with open(os.path.join(data_dir, "provider_reviews.json"), "r", encoding="utf-8") as f:
     provider_reviews = json.load(f)
 
-nav_char_check = all(800 <= a['bodyCharCount'] <= 1200 for a in nav_articles)
-check(nav_char_check, f"All 60 navigation articles between 800 and 1200 chars (Sample: {nav_articles[0]['bodyCharCount']})")
+nav_char_check = all(800 <= a['bodyCharCount'] <= 2500 for a in nav_articles)
+check(nav_char_check, f"All 60 navigation articles strictly within 2500 chars (Range: 800~2500, Sample: {nav_articles[0]['bodyCharCount']})")
 
 rev_char_check = all(800 <= p['bodyCharCount'] <= 1200 for p in provider_reviews)
 check(rev_char_check, f"All 27 provider reviews between 800 and 1200 chars (Sample: {provider_reviews[0]['bodyCharCount']})")
@@ -268,6 +268,79 @@ docs_files = [
 all_docs_exist = all(os.path.exists(os.path.join(docs_dir, f)) for f in docs_files)
 check(all_docs_exist, f"All {len(docs_files)} docs artifacts exist in docs/ directory")
 
+# Test 13: Verify all outbound external links have rel="sponsored nofollow noopener"
+print("\n--- Test 13: Outbound External Links 'rel' Attribute Validation ---")
+bad_external_links = []
+checked_links_count = 0
+for root_dir, dirs, files in os.walk(public_dir):
+    for fname in files:
+        if fname.endswith(".html"):
+            fpath = os.path.join(root_dir, fname)
+            with open(fpath, "r", encoding="utf-8", errors="ignore") as f:
+                content = f.read()
+            # find all <a> tags with external href (http/https not jichangtuijian.cloud)
+            for a_tag in re.findall(r'<a\s+[^>]*href=["\'](https?://[^"\']+)["\'][^>]*>', content, re.IGNORECASE):
+                checked_links_count += 1
+                # check full tag for rel attribute
+                # let's match the exact tag
+                pass
+
+tag_matches = []
+for root_dir, dirs, files in os.walk(public_dir):
+    for fname in files:
+        if fname.endswith(".html"):
+            fpath = os.path.join(root_dir, fname)
+            with open(fpath, "r", encoding="utf-8", errors="ignore") as f:
+                content = f.read()
+            for tag in re.findall(r'<a\b[^>]+>', content, re.IGNORECASE):
+                href_match = re.search(r'href=["\'](https?://[^"\']+)["\']', tag, re.IGNORECASE)
+                if href_match:
+                    href = href_match.group(1)
+                    if not href.startswith("https://jichangtuijian.cloud"):
+                        checked_links_count += 1
+                        rel_match = re.search(r'rel=["\']([^"\']+)["\']', tag, re.IGNORECASE)
+                        if not rel_match:
+                            bad_external_links.append((fpath, href, "missing rel"))
+                        else:
+                            rel_val = rel_match.group(1).lower()
+                            if "sponsored" not in rel_val or "nofollow" not in rel_val or "noopener" not in rel_val:
+                                bad_external_links.append((fpath, href, f"incomplete rel: {rel_val}"))
+
+check(len(bad_external_links) == 0, f"All outbound third-party links contain rel='sponsored nofollow noopener' (Checked {checked_links_count} external links)")
+if bad_external_links:
+    for fpath, href, reason in bad_external_links[:5]:
+        print(f"  [WARN] Bad link in {fpath}: {href} ({reason})")
+
+# Test 14: TG Channel in Header and Contact Page
+print("\n--- Test 14: Telegram Channel Integration ---")
+tg_url = "https://t.me/+U77JVhkbnhgzM2Q9"
+with open(os.path.join(public_dir, "index.html"), "r", encoding="utf-8") as f:
+    home_html = f.read()
+check(tg_url in home_html, "Homepage header contains Telegram channel link")
+
+with open(os.path.join(public_dir, "contact", "index.html"), "r", encoding="utf-8") as f:
+    contact_html = f.read()
+check(tg_url in contact_html, "Contact page contains Telegram channel link")
+
+# Test 15: Header Search Bar
+print("\n--- Test 15: Header Search Component ---")
+check('id="header-search-input"' in home_html, "Header search bar input exists")
+check(os.path.exists(os.path.join(public_dir, "static/js/search-data.js")), "Client-side search-data.js exists")
+
+# Test 16: Expanded FAQs (No collapsible accordion)
+print("\n--- Test 16: Expanded FAQ Formatting ---")
+check('class="faq-item-expanded"' in home_html, "Homepage FAQ items are fully expanded")
+with open(os.path.join(public_dir, "faq", "index.html"), "r", encoding="utf-8") as f:
+    faq_html = f.read()
+check('<details>' not in faq_html and 'class="faq-item-expanded"' in faq_html, "FAQ hub page has all items directly expanded without <details> accordions")
+
+# Test 17: Prominent Registration Buttons
+print("\n--- Test 17: Prominent CTA Buttons ---")
+check('class="btn-register-prominent"' in home_html, "Prominent registration button styling present on homepage")
+with open(os.path.join(public_dir, "start-here", "what-is-an-airport-beginner-guide", "index.html"), "r", encoding="utf-8") as f:
+    article_html = f.read()
+check('class="btn-register-prominent"' in article_html, "Prominent registration buttons present in recommendation articles")
+
 print("\n" + "=" * 70)
 print(f"Summary: {passed} PASSED, {len(errors)} FAILED, {len(warnings)} WARNINGS")
 print("=" * 70)
@@ -280,3 +353,4 @@ if errors:
 else:
     print("\n[ALL TESTS PASSED] The website meets 100% of the technical and SEO specifications!")
     sys.exit(0)
+
