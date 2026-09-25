@@ -45,6 +45,14 @@ class SiteGenerator:
         static_dest = os.path.join(self.output_dir, "static")
         if os.path.exists(static_src):
             shutil.copytree(static_src, static_dest)
+            
+        # Copy root icon files
+        for icon_name in ["favicon.ico", "favicon.png", "apple-touch-icon.png"]:
+            src_icon = os.path.join(self.base_dir, "src", "static", "images", icon_name)
+            if not os.path.exists(src_icon):
+                src_icon = os.path.join(self.base_dir, "src", "static", "images", "favicon.png")
+            if os.path.exists(src_icon):
+                shutil.copy2(src_icon, os.path.join(self.output_dir, icon_name))
 
     def render_header(self, current_url="/"):
         nav_items_html = ""
@@ -57,7 +65,7 @@ class SiteGenerator:
   <div class="container header-top-row">
     <div class="header-brand">
       <a href="/" class="brand-logo" aria-label="{self.brand_name} 首页">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary)"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+        <img src="/static/images/logo-icon.png" alt="{self.brand_name} Logo" width="28" height="28" style="border-radius:6px;display:block;">
         <span>{self.brand_name}</span>
       </a>
       <div class="brand-tagline">高性价比机场推荐 · Clash 机场测评 · 稳定专线节点指南</div>
@@ -191,6 +199,9 @@ class SiteGenerator:
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{html.escape(title)}">
   <meta name="twitter:description" content="{html.escape(description)}">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/static/images/logo-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/static/css/main.css">
   <link rel="alternate" type="application/rss+xml" title="{self.brand_name} RSS Feed" href="{self.domain}/rss.xml">
   {schema_script}
