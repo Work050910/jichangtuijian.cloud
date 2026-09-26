@@ -147,18 +147,24 @@ nav_sections = [
             ("遇到客服响应缓慢或节点波动时合理的沟通与自检流程", "handling-slow-support-and-node-fluctuations", "节点波动自检沟通", "有效工单与自查路径")
         ]
     },
-    # 6. 核心推荐与AI专项 (recommendations) - 6 articles (including 3 AI articles)
+    # 6. 机场推荐 (recommendations) - 12 High-CTR Articles
     {
         "section": "recommendations",
         "section_name": "机场推荐",
         "section_url": "/recommendations/",
         "articles": [
-            ("当前年份机场推荐精选榜：按预算与场景科学选型", "index-guide", "机场推荐", "综合选型指南"),
-            ("性价比机场推荐：价格、流量与适合人群比较", "value-guide", "性价比机场推荐", "性价比选型分析"),
-            ("Clash 机场推荐：4 个主推服务的套餐、节点与兼容性", "clash-guide", "Clash 机场推荐", "Clash客户端适配"),
-            ("AI 机场推荐：ChatGPT、Claude、Gemini 等工具的节点与套餐选择", "ai-tools-airport-guide", "AI 机场推荐", "海外AI工具服务选型"),
-            ("AI 工具使用场景怎么选机场：地区节点、IP 质量、延迟与设备兼容", "ai-scenarios-node-and-ip-quality", "AI 工具机场选择", "节点纯净度与延迟"),
-            ("AI 办公机场推荐：跨境协作、代码工具与多设备需求比较", "ai-office-cross-border-collaboration", "AI 办公机场推荐", "跨境协作与代码工具")
+            ("2026 最新机场推荐精选总榜：按预算与使用场景科学选型指南", "latest-airport-recommendations", "最新机场推荐", "综合选型指南与全景横评"),
+            ("高性价比机场推荐与套餐横评：价格、流量与真实性价比深度分析", "value-guide", "性价比机场推荐", "性价比选型与每GB单价核算"),
+            ("Clash 机场推荐专题：Clash Verge 与主流客户端稳定节点配置", "clash-guide", "Clash 机场推荐", "Clash客户端适配与规则分流"),
+            ("稳定机场推荐：晚高峰低延迟不卡顿专线方案与防丢包策略", "stable-airport-recommendations", "稳定机场推荐", "晚高峰稳定性与抗拥堵调度"),
+            ("便宜机场与低价小包推荐：每月几元钱也能用好的高性价比方案", "cheap-airport-recommendations", "便宜机场推荐", "低门槛入门与备用方案选择"),
+            ("优质专线机场推荐：BGP 多线入口与 IPLC 内网专线深度横评", "iplc-dedicated-line-recommendations", "专线机场推荐", "BGP与IPLC专线架构深度剖析"),
+            ("顶级机场与高端网络服务选型：面向 4K 超高清影音与大吞吐用户", "top-tier-airport-recommendations", "顶级机场推荐", "超高清流媒体与海量吞吐大户选型"),
+            ("机场节点推荐与地区选择：香港、日本、新加坡与美西原生节点测评", "node-selection-recommendations", "机场节点推荐", "各地区节点延迟实测与出口用途"),
+            ("按量付费与不限时流量包机场推荐：低频使用与轻量备用用户首选", "pay-as-you-go-recommendations", "按量付费机场推荐", "一次性购买长期不过期备用策略"),
+            ("AI 机场推荐：ChatGPT、Claude 与海外大模型工具的节点与套餐选择", "ai-tools-airport-guide", "AI 机场推荐", "海外AI工具服务选型与节点匹配"),
+            ("AI 工具使用场景怎么选机场：地区节点、原生 IP 纯净度与跨境办公延迟", "ai-scenarios-node-and-ip-quality", "AI 工具机场选择", "节点纯净度与大模型风控防范"),
+            ("最新机场优惠码与折扣活动核验指南：教你如何省钱购买正规服务", "coupon-discount-guide", "机场优惠码", "真实折扣码核验与省钱购买技巧")
         ]
     }
 ]
@@ -172,7 +178,7 @@ for sec in nav_sections:
     sec_url = sec['section_url']
     
     for title, slug, primary_kw, sub_intent in sec['articles']:
-        article_url = f"{sec_url}{slug}/" if not (sec_id == 'recommendations' and slug == 'index-guide') else "/recommendations/comprehensive-guide/"
+        article_url = f"{sec_url}{slug}/"
         
         # High-CTR keyword infused body, comprehensive depth, strictly < 2500 Chinese chars
         body_intro = f"""在当前网络连接与多设备协同办公的实际需求中，围绕“{title}”展开的讨论热度居高不下。无论是新手寻找好用的性价比机场、便宜机场推荐，还是资深玩家追求晚高峰稳定不卡顿的专线机场与 Clash 机场推荐，核心诉求始终聚焦于三点：网络节点延迟低、套餐价格透明合理、客户端订阅配置简单顺畅。

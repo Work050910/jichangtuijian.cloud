@@ -152,7 +152,7 @@ with open(os.path.join(data_dir, "provider_reviews.json"), "r", encoding="utf-8"
     provider_reviews = json.load(f)
 
 nav_char_check = all(800 <= a['bodyCharCount'] <= 2500 for a in nav_articles)
-check(nav_char_check, f"All 60 navigation articles strictly within 2500 chars (Range: 800~2500, Sample: {nav_articles[0]['bodyCharCount']})")
+check(nav_char_check, f"All {len(nav_articles)} navigation articles strictly within 2500 chars (Range: 800~2500, Sample: {nav_articles[0]['bodyCharCount']})")
 
 rev_char_check = all(800 <= p['bodyCharCount'] <= 1200 for p in provider_reviews)
 check(rev_char_check, f"All 27 provider reviews between 800 and 1200 chars (Sample: {provider_reviews[0]['bodyCharCount']})")
@@ -339,6 +339,24 @@ check('class="btn-register-prominent"' in home_html, "Prominent registration but
 with open(os.path.join(public_dir, "start-here", "what-is-an-airport-beginner-guide", "index.html"), "r", encoding="utf-8") as f:
     article_html = f.read()
 check('class="btn-register-prominent"' in article_html, "Prominent registration buttons present in recommendation articles")
+
+# Test 18: 机场推荐 Navigation Item and Articles Validation
+print("\n--- Test 18: '机场推荐' Navigation Item and Articles Validation ---")
+with open(os.path.join(public_dir, "index.html"), "r", encoding="utf-8") as f:
+    home_html = f.read()
+check('<a href="/recommendations/" class="nav-link">机场推荐</a>' in home_html, "Navigation bar contains explicit '机场推荐' link to /recommendations/")
+
+rec_articles = [a for a in nav_articles if a['section'] == 'recommendations']
+check(len(rec_articles) == 12, f"Total 12 high-CTR recommendation articles configured (actual: {len(rec_articles)})")
+
+all_rec_articles_exist = True
+for a in rec_articles:
+    a_path = os.path.join(public_dir, a['url'].strip("/"), "index.html")
+    if not os.path.exists(a_path):
+        all_rec_articles_exist = False
+        errors.append(f"Missing recommendation article: {a_path}")
+
+check(all_rec_articles_exist, "All 12 high-CTR recommendation articles exist on disk in public/recommendations/")
 
 print("\n" + "=" * 70)
 print(f"Summary: {passed} PASSED, {len(errors)} FAILED, {len(warnings)} WARNINGS")

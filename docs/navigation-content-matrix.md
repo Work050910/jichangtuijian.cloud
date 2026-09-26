@@ -58,9 +58,15 @@
 | 使用须知 | 合规使用声明：遵守所在地法律法规与平台使用条款 | `/before-you-buy/compliance-and-terms-of-service/` | 合规使用声明 | 2252 | 完成 |
 | 使用须知 | 机场服务跑路与失联风险防范及数据备份机制 | `/before-you-buy/preventing-provider-disconnection-risks/` | 机场跑路防范 | 2246 | 完成 |
 | 使用须知 | 遇到客服响应缓慢或节点波动时合理的沟通与自检流程 | `/before-you-buy/handling-slow-support-and-node-fluctuations/` | 节点波动自检沟通 | 2258 | 完成 |
-| 机场推荐 | 当前年份机场推荐精选榜：按预算与场景科学选型 | `/recommendations/comprehensive-guide/` | 机场推荐 | 2243 | 完成 |
-| 机场推荐 | 性价比机场推荐：价格、流量与适合人群比较 | `/recommendations/value-guide/` | 性价比机场推荐 | 2236 | 完成 |
-| 机场推荐 | Clash 机场推荐：4 个主推服务的套餐、节点与兼容性 | `/recommendations/clash-guide/` | Clash 机场推荐 | 2232 | 完成 |
-| 机场推荐 | AI 机场推荐：ChatGPT、Claude、Gemini 等工具的节点与套餐选择 | `/recommendations/ai-tools-airport-guide/` | AI 机场推荐 | 2229 | 完成 |
-| 机场推荐 | AI 工具使用场景怎么选机场：地区节点、IP 质量、延迟与设备兼容 | `/recommendations/ai-scenarios-node-and-ip-quality/` | AI 工具机场选择 | 2256 | 完成 |
-| 机场推荐 | AI 办公机场推荐：跨境协作、代码工具与多设备需求比较 | `/recommendations/ai-office-cross-border-collaboration/` | AI 办公机场推荐 | 2252 | 完成 |
+| 机场推荐 | 2026 最新机场推荐精选总榜：按预算与使用场景科学选型指南 | `/recommendations/latest-airport-recommendations/` | 最新机场推荐 | 2262 | 完成 |
+| 机场推荐 | 高性价比机场推荐与套餐横评：价格、流量与真实性价比深度分析 | `/recommendations/value-guide/` | 性价比机场推荐 | 2271 | 完成 |
+| 机场推荐 | Clash 机场推荐专题：Clash Verge 与主流客户端稳定节点配置 | `/recommendations/clash-guide/` | Clash 机场推荐 | 2242 | 完成 |
+| 机场推荐 | 稳定机场推荐：晚高峰低延迟不卡顿专线方案与防丢包策略 | `/recommendations/stable-airport-recommendations/` | 稳定机场推荐 | 2267 | 完成 |
+| 机场推荐 | 便宜机场与低价小包推荐：每月几元钱也能用好的高性价比方案 | `/recommendations/cheap-airport-recommendations/` | 便宜机场推荐 | 2273 | 完成 |
+| 机场推荐 | 优质专线机场推荐：BGP 多线入口与 IPLC 内网专线深度横评 | `/recommendations/iplc-dedicated-line-recommendations/` | 专线机场推荐 | 2249 | 完成 |
+| 机场推荐 | 顶级机场与高端网络服务选型：面向 4K 超高清影音与大吞吐用户 | `/recommendations/top-tier-airport-recommendations/` | 顶级机场推荐 | 2276 | 完成 |
+| 机场推荐 | 机场节点推荐与地区选择：香港、日本、新加坡与美西原生节点测评 | `/recommendations/node-selection-recommendations/` | 机场节点推荐 | 2277 | 完成 |
+| 机场推荐 | 按量付费与不限时流量包机场推荐：低频使用与轻量备用用户首选 | `/recommendations/pay-as-you-go-recommendations/` | 按量付费机场推荐 | 2280 | 完成 |
+| 机场推荐 | AI 机场推荐：ChatGPT、Claude 与海外大模型工具的节点与套餐选择 | `/recommendations/ai-tools-airport-guide/` | AI 机场推荐 | 2254 | 完成 |
+| 机场推荐 | AI 工具使用场景怎么选机场：地区节点、原生 IP 纯净度与跨境办公延迟 | `/recommendations/ai-scenarios-node-and-ip-quality/` | AI 工具机场选择 | 2275 | 完成 |
+| 机场推荐 | 最新机场优惠码与折扣活动核验指南：教你如何省钱购买正规服务 | `/recommendations/coupon-discount-guide/` | 机场优惠码 | 2280 | 完成 |

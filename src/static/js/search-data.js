@@ -546,40 +546,76 @@ window.SITE_SEARCH_INDEX = [
     "keywords": "节点波动自检沟通 有效工单与自查路径 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
   },
   {
-    "title": "当前年份机场推荐精选榜：按预算与场景科学选型",
-    "url": "/recommendations/comprehensive-guide/",
+    "title": "2026 最新机场推荐精选总榜：按预算与使用场景科学选型指南",
+    "url": "/recommendations/latest-airport-recommendations/",
     "type": "机场推荐",
-    "keywords": "机场推荐 综合选型指南 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
+    "keywords": "最新机场推荐 综合选型指南与全景横评 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
   },
   {
-    "title": "性价比机场推荐：价格、流量与适合人群比较",
+    "title": "高性价比机场推荐与套餐横评：价格、流量与真实性价比深度分析",
     "url": "/recommendations/value-guide/",
     "type": "机场推荐",
-    "keywords": "性价比机场推荐 性价比选型分析 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
+    "keywords": "性价比机场推荐 性价比选型与每GB单价核算 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
   },
   {
-    "title": "Clash 机场推荐：4 个主推服务的套餐、节点与兼容性",
+    "title": "Clash 机场推荐专题：Clash Verge 与主流客户端稳定节点配置",
     "url": "/recommendations/clash-guide/",
     "type": "机场推荐",
-    "keywords": "Clash 机场推荐 Clash客户端适配 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
+    "keywords": "Clash 机场推荐 Clash客户端适配与规则分流 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
   },
   {
-    "title": "AI 机场推荐：ChatGPT、Claude、Gemini 等工具的节点与套餐选择",
+    "title": "稳定机场推荐：晚高峰低延迟不卡顿专线方案与防丢包策略",
+    "url": "/recommendations/stable-airport-recommendations/",
+    "type": "机场推荐",
+    "keywords": "稳定机场推荐 晚高峰稳定性与抗拥堵调度 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
+  },
+  {
+    "title": "便宜机场与低价小包推荐：每月几元钱也能用好的高性价比方案",
+    "url": "/recommendations/cheap-airport-recommendations/",
+    "type": "机场推荐",
+    "keywords": "便宜机场推荐 低门槛入门与备用方案选择 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
+  },
+  {
+    "title": "优质专线机场推荐：BGP 多线入口与 IPLC 内网专线深度横评",
+    "url": "/recommendations/iplc-dedicated-line-recommendations/",
+    "type": "机场推荐",
+    "keywords": "专线机场推荐 BGP与IPLC专线架构深度剖析 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
+  },
+  {
+    "title": "顶级机场与高端网络服务选型：面向 4K 超高清影音与大吞吐用户",
+    "url": "/recommendations/top-tier-airport-recommendations/",
+    "type": "机场推荐",
+    "keywords": "顶级机场推荐 超高清流媒体与海量吞吐大户选型 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
+  },
+  {
+    "title": "机场节点推荐与地区选择：香港、日本、新加坡与美西原生节点测评",
+    "url": "/recommendations/node-selection-recommendations/",
+    "type": "机场推荐",
+    "keywords": "机场节点推荐 各地区节点延迟实测与出口用途 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
+  },
+  {
+    "title": "按量付费与不限时流量包机场推荐：低频使用与轻量备用用户首选",
+    "url": "/recommendations/pay-as-you-go-recommendations/",
+    "type": "机场推荐",
+    "keywords": "按量付费机场推荐 一次性购买长期不过期备用策略 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
+  },
+  {
+    "title": "AI 机场推荐：ChatGPT、Claude 与海外大模型工具的节点与套餐选择",
     "url": "/recommendations/ai-tools-airport-guide/",
     "type": "机场推荐",
-    "keywords": "AI 机场推荐 海外AI工具服务选型 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
+    "keywords": "AI 机场推荐 海外AI工具服务选型与节点匹配 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
   },
   {
-    "title": "AI 工具使用场景怎么选机场：地区节点、IP 质量、延迟与设备兼容",
+    "title": "AI 工具使用场景怎么选机场：地区节点、原生 IP 纯净度与跨境办公延迟",
     "url": "/recommendations/ai-scenarios-node-and-ip-quality/",
     "type": "机场推荐",
-    "keywords": "AI 工具机场选择 节点纯净度与延迟 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
+    "keywords": "AI 工具机场选择 节点纯净度与大模型风控防范 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
   },
   {
-    "title": "AI 办公机场推荐：跨境协作、代码工具与多设备需求比较",
-    "url": "/recommendations/ai-office-cross-border-collaboration/",
+    "title": "最新机场优惠码与折扣活动核验指南：教你如何省钱购买正规服务",
+    "url": "/recommendations/coupon-discount-guide/",
     "type": "机场推荐",
-    "keywords": "AI 办公机场推荐 跨境协作与代码工具 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
+    "keywords": "机场优惠码 真实折扣码核验与省钱购买技巧 机场推荐 性价比机场 Clash 机场推荐 稳定机场 便宜机场 专线机场 机场优惠码"
   },
   {
     "title": "新手第一次选机场应该优先考虑哪些指标？",

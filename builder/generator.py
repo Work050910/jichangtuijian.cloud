@@ -630,7 +630,7 @@ class SiteGenerator:
             }
             self.render_page(art['title'], art['metaDescription'], url, content_html, schema_json=schema, page_type="article")
 
-        print("Generated 60 navigation articles.")
+        print(f"Generated {len(self.nav_articles)} navigation articles.")
 
     def generate_faq_pages(self):
         for faq in self.faq100:
@@ -931,6 +931,24 @@ class SiteGenerator:
   <td><a href="{p['inviteURL']}" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:4px 10px;font-size:12px;min-height:auto;" data-provider="{p['slug']}" data-rank="{p['rank']}" data-placement="pillar_table">官网注册</a></td>
 </tr>
 """
+
+        rec_articles = [a for a in self.nav_articles if a['section'] == 'recommendations']
+        rec_articles_html = ""
+        for art in rec_articles:
+            rec_articles_html += f"""
+      <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div>
+          <span style="display:inline-block;padding:3px 8px;font-size:12px;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;margin-bottom:8px;">{art['primaryKeyword']}</span>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;line-height:1.4;"><a href="{art['url']}">{art['h1']}</a></h3>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:12px;">{art['metaDescription'][:88]}...</p>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-light);padding-top:10px;border-top:1px solid var(--border-subtle);">
+          <span>约 {art['bodyCharCount']} 字</span>
+          <a href="{art['url']}" style="font-weight:600;color:var(--primary);">阅读专题 →</a>
+        </div>
+      </div>
+"""
+
         content_html = f"""
 <div class="container" style="padding:32px 20px;">
   <div class="breadcrumbs">
@@ -996,6 +1014,14 @@ class SiteGenerator:
           {table_rows}
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <section style="margin-bottom:36px;">
+    <h2 style="font-size:22px;font-weight:700;margin-bottom:12px;">三、机场推荐高点击率精选专题文章（12 篇全景指南）</h2>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px;">依照高频用户真实检索意图，围绕“性价比机场、Clash 机场推荐、稳定专线、便宜机场、AI 机场与节点测评”等核心词打造的深度长文：</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:16px;">
+      {rec_articles_html}
     </div>
   </section>
 </div>
