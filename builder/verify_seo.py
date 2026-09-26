@@ -311,16 +311,15 @@ if bad_external_links:
     for fpath, href, reason in bad_external_links[:5]:
         print(f"  [WARN] Bad link in {fpath}: {href} ({reason})")
 
-# Test 14: TG Channel in Header and Contact Page
-print("\n--- Test 14: Telegram Channel Integration ---")
-tg_url = "https://t.me/+U77JVhkbnhgzM2Q9"
+# Test 14: TG Button Clean Removal Check
+print("\n--- Test 14: TG Button Removal Verification ---")
 with open(os.path.join(public_dir, "index.html"), "r", encoding="utf-8") as f:
     home_html = f.read()
-check(tg_url in home_html, "Homepage header contains Telegram channel link")
+check("header-tg-btn" not in home_html, "Header TG button cleanly removed from homepage")
 
 with open(os.path.join(public_dir, "contact", "index.html"), "r", encoding="utf-8") as f:
     contact_html = f.read()
-check(tg_url in contact_html, "Contact page contains Telegram channel link")
+check("header-tg-btn" not in contact_html, "TG button cleanly removed from contact page")
 
 # Test 15: Header Search Bar
 print("\n--- Test 15: Header Search Component ---")

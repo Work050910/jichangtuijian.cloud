@@ -79,12 +79,6 @@ class SiteGenerator:
         <div id="header-search-results" class="search-results-dropdown"></div>
       </div>
 
-      <!-- Telegram 官方交流群 -->
-      <a href="{self.tg_channel}" class="header-tg-btn" target="_blank" rel="sponsored nofollow noopener" aria-label="加入 Telegram 官方交流群">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-        <span>TG 交流群</span>
-      </a>
-
       <a href="/recommendations/" class="header-cta-btn">查看机场推荐</a>
       <button class="mobile-menu-toggle" aria-label="切换主导航菜单" aria-expanded="false" aria-controls="main-nav">☰</button>
     </div>
@@ -112,12 +106,6 @@ class SiteGenerator:
       <div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--text-main);">{self.brand_name}</div>
       <p>{p1}</p>
       <p>{p2}</p>
-      <div style="margin-top:12px;">
-        <a href="{self.tg_channel}" target="_blank" rel="sponsored nofollow noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#0088cc;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-          <span>加入官方 Telegram 交流群</span>
-        </a>
-      </div>
     </div>
     <div>
       <div class="footer-col-title">热门导航</div>
@@ -288,10 +276,6 @@ class SiteGenerator:
     <div class="hero-ctas">
       <a href="/recommendations/" class="btn-primary">查看机场推荐榜单</a>
       <a href="/providers/quanqiu-cloud/" class="btn-secondary">了解第一名全球云测评</a>
-      <a href="{self.tg_channel}" target="_blank" rel="sponsored nofollow noopener" class="header-tg-btn" style="padding:12px 18px;font-size:14px;border-radius:var(--radius-md);">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-        <span>加入 TG 官方交流群</span>
-      </a>
     </div>
     <div class="hero-disclaimer">信息核验声明：本站所有价格、流量与优惠码均包含最后核验日期，下单前请以服务商当前结算页为准。本站部分外链包含带有 rel="sponsored nofollow noopener" 属性的邀请链接。</div>
   </div>
@@ -491,10 +475,12 @@ class SiteGenerator:
         </ul>
       </div>
       <div class="sidebar-widget">
-        <div class="widget-title">官方交流群</div>
-        <a href="{self.tg_channel}" target="_blank" rel="sponsored nofollow noopener" class="header-tg-btn" style="width:100%;justify-content:center;">
-          <span>加入 Telegram 交流群</span>
-        </a>
+        <div class="widget-title">使用指南与选型</div>
+        <ul style="list-style:none;font-size:13px;display:flex;flex-direction:column;gap:8px;">
+          <li><a href="/recommendations/">• 机场推荐精选榜</a></li>
+          <li><a href="/start-here/">• 新手快速上手指南</a></li>
+          <li><a href="/faq/">• 常见问题答疑库</a></li>
+        </ul>
       </div>
     </aside>
   </div>
@@ -623,10 +609,8 @@ class SiteGenerator:
         </ul>
       </div>
       <div class="sidebar-widget">
-        <div class="widget-title">官方 TG 交流</div>
-        <a href="{self.tg_channel}" target="_blank" rel="sponsored nofollow noopener" class="header-tg-btn" style="width:100%;justify-content:center;">
-          <span>加入 Telegram 交流群</span>
-        </a>
+        <div class="widget-title">信息核验声明</div>
+        <p style="font-size:12px;color:var(--text-muted);line-height:1.6;">本站所有推荐服务均经过人工定期核验，价格与优惠以各官网当前实时结算页为准。</p>
       </div>
     </aside>
   </div>
@@ -711,10 +695,13 @@ class SiteGenerator:
         </ul>
       </div>
       <div class="sidebar-widget">
-        <div class="widget-title">官方 TG 交流</div>
-        <a href="{self.tg_channel}" target="_blank" rel="sponsored nofollow noopener" class="header-tg-btn" style="width:100%;justify-content:center;">
-          <span>加入 Telegram 交流群</span>
-        </a>
+        <div class="widget-title">知识库索引</div>
+        <ul style="list-style:none;font-size:13px;display:flex;flex-direction:column;gap:8px;">
+          <li><a href="/start-here/">• 新手开始教程</a></li>
+          <li><a href="/compare/">• 价格与流量对比</a></li>
+          <li><a href="/devices/">• 设备客户端配置</a></li>
+          <li><a href="/before-you-buy/">• 购买前避坑须知</a></li>
+        </ul>
       </div>
     </aside>
   </div>
@@ -1320,11 +1307,10 @@ class SiteGenerator:
             if slug == "contact":
                 extra_content = f"""
 <div style="background:var(--primary-light);border:1px solid var(--primary-border);border-radius:var(--radius-md);padding:24px;margin:24px 0;">
-  <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--text-main);">官方 Telegram 交流频道与纠错入口</h3>
-  <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">如果您在阅读过程中发现任何服务商价格变动、节点资料调整或优惠码失效，欢迎加入我们的官方 Telegram 交流群随时提交反馈，我们将第一时间核实并修正：</p>
-  <a href="{self.tg_channel}" target="_blank" rel="sponsored nofollow noopener" class="btn-register-prominent" style="display:inline-flex;align-items:center;gap:8px;">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-    <span>点击加入官方 Telegram 交流频道 (t.me/+U77JVhkbnhgzM2Q9)</span>
+  <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--text-main);">官方纠错与反馈通道</h3>
+  <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">如果您在阅读过程中发现任何服务商价格变动、节点资料调整或优惠码失效，欢迎通过官方邮箱随时提交反馈，我们将第一时间核实并修正：</p>
+  <a href="mailto:contact@jichangtuijian.cloud" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;">
+    <span>发送邮件反馈 (contact@jichangtuijian.cloud)</span>
   </a>
 </div>
 """
