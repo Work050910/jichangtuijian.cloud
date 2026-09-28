@@ -599,6 +599,101 @@ img {
 }
 
 /* ==========================================================================
+   Table of Contents (TOC) & Scrollspy
+   ========================================================================== */
+
+.toc-widget {
+  position: sticky;
+  top: 85px;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+  z-index: 10;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.toc-widget::-webkit-scrollbar {
+  width: 4px;
+}
+
+.toc-widget::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 4px;
+}
+
+.toc-nav {
+  margin-top: 6px;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.toc-item {
+  margin: 0;
+  padding: 0;
+}
+
+.toc-item.toc-h2 {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.toc-item.toc-h3 {
+  font-size: 12px;
+  font-weight: 400;
+  padding-left: 12px;
+  margin-left: 4px;
+  border-left: 2px solid var(--border-subtle);
+}
+
+.toc-link {
+  display: block;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toc-link:hover {
+  color: var(--primary);
+  background-color: var(--primary-light);
+  text-decoration: none;
+}
+
+.toc-link.active,
+.toc-item.active > .toc-link {
+  color: var(--primary);
+  font-weight: 700;
+  background-color: var(--primary-light);
+  border-left-color: var(--primary);
+}
+
+/* Ensure smooth scrolling with offset for sticky header */
+.article-body h2,
+.article-body h3,
+.article-main h2,
+.article-main h3 {
+  scroll-margin-top: 90px;
+}
+
+/* ==========================================================================
    Breadcrumbs
    ========================================================================== */
 
@@ -685,7 +780,19 @@ img {
   }
   
   .article-sidebar {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+  }
+
+  .article-sidebar .sidebar-widget:not(.toc-widget) {
     display: none;
+  }
+
+  .toc-widget {
+    position: static;
+    max-height: 280px;
+    margin-bottom: 20px;
   }
   
   .footer-top {
