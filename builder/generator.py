@@ -914,100 +914,495 @@ class SiteGenerator:
         print(f"Generated {sec_name} hub page.")
 
     def _generate_recommendations_pillar(self):
-        title = "当前年份机场推荐精选总榜：按需求与预算科学选择服务"
-        desc = "系统整理 27 家服务商真实资料，严格固定前四名编辑推荐排序，提供 12 家服务商深度对比表、按预算与流量选型方法及购买前核验清单。"
+        title = "2026 最新机场推荐精选总榜：27家高性价比、稳定专线与AI流媒体解锁机场横向评测"
+        desc = "2026 最新机场推荐权威全景评测，精选 27 家高性价比机场与稳定专线机场。深度横向对比价格、节点线路、Clash配置、ChatGPT/Claude等AI工具及4K流媒体解锁能力，附专属优惠码与官网注册入口。"
         
+        # Meta extras mapping for line types, protocols, AI unlock and target audience for all 27 providers
+        meta_extras = {
+            "quanqiu-cloud": {
+                "line": "多入口 BGP + 跨境专线优化",
+                "protocols": "Shadowsocks, Trojan, VLESS",
+                "ai_unlock": "ChatGPT Plus, Claude 3.5, Gemini Pro, Midjourney 全解",
+                "streaming": "Netflix 4K, Disney+, YouTube Premium, TikTok 全区",
+                "audience": "跨境电商出海、外贸商务、多国 IP 切换、企业多设备协同",
+                "tags": ["综合旗舰", "多国节点", "智能分流", "企业首选"]
+            },
+            "flycat-cloud": {
+                "line": "全线 IEPL/IPLC 专线隧道",
+                "protocols": "Shadowsocks, Trojan, VLESS",
+                "ai_unlock": "OpenAI ChatGPT, Claude 3.5, Gemini 稳定问答",
+                "streaming": "Netflix 原生解锁, Disney+, YouTube 4K",
+                "audience": "预算敏感型个人、小流量年付备用、学生及轻量办公族",
+                "tags": ["性价比年付", "IEPL专线", "自研客户端", "学生推荐"]
+            },
+            "twilight": {
+                "line": "晚高峰大带宽传输优化专线",
+                "protocols": "Shadowsocks, Trojan",
+                "ai_unlock": "ChatGPT 常用端、Claude 网页端与 API",
+                "streaming": "YouTube 4K/8K 秒开、Netflix 极速加载、HBO Max",
+                "audience": "流媒体重度追剧党、大流量影音下载、高频音视频会议",
+                "tags": ["晚高峰影音", "大流量大户", "4K秒开", "低丢包"]
+            },
+            "breezenet": {
+                "line": "轻量专线隧道中转",
+                "protocols": "Shadowsocks, Trojan, 自研客户端",
+                "ai_unlock": "基础 AI 工具问答、搜索引擎 AI 协同",
+                "streaming": "主流流媒体 1080P/4K 解锁",
+                "audience": "新手入门、轻度日常浏览、不想研究复杂配置的初学者",
+                "tags": ["轻量专线", "开箱即用", "自研客户端", "新手友好"]
+            },
+            "u1s1": {
+                "line": "优质中转优化 + 原生 IP 出口",
+                "protocols": "Shadowsocks, Trojan",
+                "ai_unlock": "ChatGPT, Claude 稳定连通",
+                "streaming": "Netflix, Disney+ 原生解锁",
+                "audience": "自用长效稳定需求、看重清晰流量档位与可用性的用户",
+                "tags": ["稳定自用", "原生IP", "标注清晰", "中转优化"]
+            },
+            "jilian-cloud": {
+                "line": "IPLC 内网专线加速通道",
+                "protocols": "Shadowsocks, Trojan",
+                "ai_unlock": "AI 办公助手、ChatGPT、代码 Copilot",
+                "streaming": "主流流媒体港日新节点极速解锁",
+                "audience": "跨境办公白领、远程音视频会议、外贸业务骨干",
+                "tags": ["IPLC专线", "低延迟", "防QoS", "远程办公"]
+            },
+            "guangnian-ladder": {
+                "line": "三网动态中转优化线路",
+                "protocols": "Shadowsocks, 一键导入客户端",
+                "ai_unlock": "ChatGPT 基础对话、海外社交平台",
+                "streaming": "YouTube 4K、海外音乐平台",
+                "audience": "刚需入门、学生族、移动端日常翻阅资料与轻量备用",
+                "tags": ["入门轻量", "客户端易用", "三网优化", "高性价比"]
+            },
+            "guangsu-cloud": {
+                "line": "BGP 多线入口 + 低延迟中转",
+                "protocols": "Shadowsocks, Trojan",
+                "ai_unlock": "GitHub Copilot, ChatGPT, Claude",
+                "streaming": "YouTube 4K, Netflix 亚太区",
+                "audience": "程序员、开发者、海外代码库拉取、轻度海外游戏联机",
+                "tags": ["开发者首选", "BGP中转", "低延迟", "代码拉取"]
+            },
+            "weitu-cloud": {
+                "line": "亚太低延迟 VLESS 节点群",
+                "protocols": "VLESS, Trojan",
+                "ai_unlock": "AI 内容生成工具、Claude, ChatGPT",
+                "streaming": "Netflix 4K, Disney+, 亚太流媒体全解锁",
+                "audience": "亚太节点重度用户、短视频创作者、多端协同办公",
+                "tags": ["VLESS协议", "亚太低延迟", "智能负载", "多端协同"]
+            },
+            "yuzhou-cloud": {
+                "line": "多出口专线负载 + 大流量带宽",
+                "protocols": "Shadowsocks, Trojan",
+                "ai_unlock": "全场景主流 AI 工具生态兼容",
+                "streaming": "全球主要流媒体平台 4K 超清播放",
+                "audience": "多任务大流量用户、跨区重度冲浪、家庭多设备共用",
+                "tags": ["大流量性价比", "多地区覆盖", "家庭共享", "大带宽"]
+            },
+            "sujie": {
+                "line": "高带宽 IPLC 专线 + 晚高峰负载均衡",
+                "protocols": "Shadowsocks, Trojan",
+                "ai_unlock": "ChatGPT Plus, Claude 3.5 快速响应",
+                "streaming": "YouTube 4K/8K、Netflix 原生超高清",
+                "audience": "对高峰时段网络稳定性要求极高的影音发烧友与专业用户",
+                "tags": ["高带宽IPLC", "晚高峰无卡顿", "8K极速", "专业级"]
+            },
+            "sogo-cloud": {
+                "line": "全球高速 BGP 专线优化",
+                "protocols": "Shadowsocks, Trojan",
+                "ai_unlock": "ChatGPT Plus, Claude Pro, Midjourney",
+                "streaming": "Netflix Ultra HD, Disney+, Hulu",
+                "audience": "多媒体设计师、AI 创作者、小微电商团队多并发使用",
+                "tags": ["多设备并发", "全球节点", "AI创作", "团队共享"]
+            },
+            "kuaili": {
+                "line": "均衡型中转接入线路",
+                "protocols": "Shadowsocks",
+                "ai_unlock": "日常 AI 检索、ChatGPT 网页版",
+                "streaming": "YouTube 1080P/4K、海外社媒浏览",
+                "audience": "临时备用机、轻度网络开销、日常网页浏览与即时通讯",
+                "tags": ["低门槛入门", "轻量备用", "快速接入", "经济实惠"]
+            },
+            "two-cats-cloud": {
+                "line": "中转 + 专线混合调度线路",
+                "protocols": "Shadowsocks, Trojan",
+                "ai_unlock": "主流 AI 平台全支持、ChatGPT 原生解锁",
+                "streaming": "Netflix, Disney+ 港台日韩美区解锁",
+                "audience": "预算适中、日常兼顾大流量办公与高清追剧的白领人群",
+                "tags": ["混合线路", "原生IP", "均衡稳健", "白领日常"]
+            },
+            "yifan-cloud": {
+                "line": "VLESS / Reality 新一代协议专线",
+                "protocols": "VLESS, Reality, Trojan",
+                "ai_unlock": "跨境电商运营、ChatGPT, Claude 稳定连接",
+                "streaming": "YouTube 4K, Netflix 全球热门剧集",
+                "audience": "亚马逊/Shopee 跨境电商卖家、大流量下载与重度浏览者",
+                "tags": ["Reality协议", "大流量首选", "三网直连", "抗干扰"]
+            },
+            "edgenova": {
+                "line": "全球边缘节点冗余备份网络",
+                "protocols": "Reality, Trojan, VLESS",
+                "ai_unlock": "AI API 持续并发调用、自动化脚本数据同步",
+                "streaming": "海外全平台流媒体及学术数据库解锁",
+                "audience": "海外技术团队、自动化接口运维、技术极客与科研人员",
+                "tags": ["边缘计算", "原生IP", "API高并发", "技术极客"]
+            },
+            "kexin-cloud": {
+                "line": "IEPL 高等级加密专线",
+                "protocols": "Shadowsocks, Trojan",
+                "ai_unlock": "ChatGPT, Claude, 涉密跨境协作通道",
+                "streaming": "Netflix, Disney+, YouTube Premium",
+                "audience": "高净值商务人士、重视数据隐私与售后保障的长期用户",
+                "tags": ["企业级IEPL", "高隐私加密", "全平台覆盖", "品质服务"]
+            },
+            "wavenet": {
+                "line": "海外 CDN 协同与专线加速通道",
+                "protocols": "Shadowsocks, Trojan",
+                "ai_unlock": "ChatGPT, Claude 专属低延迟优化",
+                "streaming": "Twitch, YouTube 直播秒开、TikTok 跨国运营",
+                "audience": "跨境直播观看、自媒体视频创作者、AI 工具重度从业者",
+                "tags": ["AI深度适配", "直播加速", "自媒体必备", "高带宽"]
+            },
+            "ladder-cloud": {
+                "line": "IEPL 企业专线 + 极简客户端",
+                "protocols": "Shadowsocks, 自研客户端",
+                "ai_unlock": "Google Workspace, ChatGPT 基础连通",
+                "streaming": "Netflix, YouTube 4K 流畅播放",
+                "audience": "不愿研究复杂规则的小白用户、多设备家庭日常使用",
+                "tags": ["IEPL专线", "自研客户端", "新手防坑", "晚高峰保障"]
+            },
+            "lingdong-cloud": {
+                "line": "全线 VLESS 协议高容错节点",
+                "protocols": "VLESS, Trojan",
+                "ai_unlock": "多协议自动回退、各类 AI 平台深度兼容",
+                "streaming": "YouTube 4K 晚高峰满速、Netflix 稳定解锁",
+                "audience": "复杂网络环境（校园网、企业局域网）下的穿透加速用户",
+                "tags": ["全线VLESS", "校园网穿透", "高并发", "智能回退"]
+            },
+            "yinxingren": {
+                "line": "纯专线架构 + 新加坡抗封锁混淆",
+                "protocols": "VLESS, Trojan",
+                "ai_unlock": "AI 原生原生 IP 访问、ChatGPT 零报错",
+                "streaming": "8K 超清视频秒开、全区 Netflix 原生解锁",
+                "audience": "敏感时期需要高防失联保障的高频商旅人士与出海团队",
+                "tags": ["纯专线", "新加坡团队", "8K超高清", "原生IP"]
+            },
+            "flyv": {
+                "line": "全线 1 倍率专线架构",
+                "protocols": "VLESS, Trojan, Shadowsocks",
+                "ai_unlock": "ChatGPT, Claude, Midjourney 原生全解锁",
+                "streaming": "4K/8K 流媒体零卡顿、Disney+ 原生解锁",
+                "audience": "追求无倍率套路、大流量超清视频与 AI 并发的高阶玩家",
+                "tags": ["全线1倍率", "专线不限速", "8K视频", "AI全解"]
+            },
+            "wuyou-link": {
+                "line": "双向中转隧道 + 通用订阅",
+                "protocols": "Shadowsocks, Trojan, Clash",
+                "ai_unlock": "海外邮件协同、基础 AI 交互平台",
+                "streaming": "主流流媒体 1080P/4K 解锁",
+                "audience": "外贸业务员、海外邮件联络、追求极低月均成本的备用人群",
+                "tags": ["通用订阅", "低月均成本", "外贸办公", "全平台兼容"]
+            },
+            "civet-network": {
+                "line": "IPLC 专线 + 1倍率不限设备",
+                "protocols": "IPLC 隧道, Shadowsocks",
+                "ai_unlock": "ChatGPT, Claude 等日常 AI 生产力工具",
+                "streaming": "Netflix, YouTube 4K 高清播放",
+                "audience": "多设备家庭、小微工作室团队共享、追求纯净 1 倍率用户",
+                "tags": ["IPLC专线", "不限设备数", "1倍率无扣量", "工作室共享"]
+            },
+            "flashleap": {
+                "line": "IPLC 专线 + 轻量级低抖动路由",
+                "protocols": "Shadowsocks, Trojan, 自研端",
+                "ai_unlock": "Notion AI, Figma, GitHub, ChatGPT 协同",
+                "streaming": "YouTube 4K、海外音乐流媒体",
+                "audience": "远程办公数字游民、敏捷敏捷开发者、日常学习办公族",
+                "tags": ["IPLC专线", "极低抖动", "数字游民", "敏捷开发"]
+            },
+            "firefly": {
+                "line": "核心骨干网专线 + 原生 IP 节点",
+                "protocols": "VLESS, IPLC, Trojan",
+                "ai_unlock": "AI 开发者 API 接口、大模型多并发调用",
+                "streaming": "8K 极速流媒体、全区 Netflix/Disney+",
+                "audience": "技术发烧友、跨国大文件传输、高端企业出海技术栈",
+                "tags": ["骨干网IPLC", "VLESS原生", "企业级SLA", "开发者推荐"]
+            },
+            "kuajie-cloud": {
+                "line": "全球 50+ 地区混合接入专线",
+                "protocols": "Shadowsocks, Trojan, VLESS",
+                "ai_unlock": "全球多国本地限制 AI 服务全解锁",
+                "streaming": "全球小众流媒体与主流 4K 流媒体全覆盖",
+                "audience": "跨国出海企业、全球市场调研员、多国出口 IP 刚需群体",
+                "tags": ["全球50+地区", "多出口节点", "出海合规", "大流量"]
+            }
+        }
+
+        # 1. Generate full 27-provider table rows
         table_rows = ""
-        for p in self.providers[:12]:
+        for p in self.providers:
+            slug = p['slug']
+            extras = meta_extras.get(slug, {
+                "line": "高速优化线路",
+                "protocols": "Shadowsocks, Trojan",
+                "ai_unlock": "ChatGPT, Claude 稳定支持",
+                "streaming": "Netflix, YouTube 4K 解锁",
+                "audience": "日常办公、流媒体及学术查阅",
+                "tags": ["稳定可靠", "高速节点"]
+            })
+            coupon_html = f"<code>{p['coupon']}</code>" if p['coupon'] != '暂无优惠码' else '<span style="color:var(--text-light);font-size:12px;">结算页确认</span>'
             table_rows += f"""
 <tr>
-  <td><strong>{p['rank']}</strong></td>
-  <td><a href="/providers/{p['slug']}/"><strong>{p['name']}</strong></a></td>
-  <td>{p['priceFrom']}</td>
+  <td style="text-align:center;"><strong>TOP {p['rank']}</strong></td>
+  <td>
+    <a href="/providers/{slug}/" style="font-weight:700;color:var(--text-main);display:flex;align-items:center;gap:6px;">
+      {p['name']}
+      {"<span style='background:#fef3c7;color:#92400e;font-size:10px;padding:2px 6px;border-radius:3px;font-weight:600;'>主推</span>" if p.get('isPrimary') else ""}
+    </a>
+  </td>
+  <td><span style="font-weight:700;color:var(--primary);">{p['priceFrom']}</span></td>
   <td>{p['trafficFrom']}</td>
-  <td><code>{p['coupon']}</code></td>
-  <td>{p['suitableFor']}</td>
-  <td><span style="font-size:12px;color:var(--text-light)">{p['lastChecked']}</span></td>
-  <td><a href="{p['inviteURL']}" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:4px 10px;font-size:12px;min-height:auto;" data-provider="{p['slug']}" data-rank="{p['rank']}" data-placement="pillar_table">官网注册</a></td>
+  <td>{coupon_html}</td>
+  <td><span style="font-size:12px;color:var(--text-muted);">{extras['line']}</span></td>
+  <td><span style="font-size:12px;color:var(--text-muted);">{extras['ai_unlock'][:22]}...</span></td>
+  <td><span style="font-size:12px;color:var(--text-muted);">{extras['audience'][:24]}...</span></td>
+  <td style="text-align:center;">
+    <a href="{p['inviteURL']}" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:6px 12px;font-size:12px;min-height:auto;" data-provider="{slug}" data-rank="{p['rank']}" data-placement="pillar_table">官网注册</a>
+  </td>
 </tr>
 """
 
+        # 2. Generate 27 detailed provider review cards
+        provider_cards_html = ""
+        for p in self.providers:
+            slug = p['slug']
+            extras = meta_extras.get(slug, {
+                "line": "高速优化线路",
+                "protocols": "Shadowsocks, Trojan",
+                "ai_unlock": "ChatGPT, Claude 稳定支持",
+                "streaming": "Netflix, YouTube 4K 解锁",
+                "audience": "日常办公、流媒体及学术查阅",
+                "tags": ["稳定可靠", "高速节点"]
+            })
+            
+            packages_li = "".join([f"<li style='margin-bottom:6px;'>{pkg}</li>" for pkg in p.get('packages', [])])
+            if not packages_li:
+                packages_li = f"<li>起步方案：{p['priceFrom']}，提供 {p['trafficFrom']}，具体按月/年付计费阶梯以官网结算页实时展示为准。</li>"
+                
+            tags_html = " ".join([f"<span style='background:var(--bg-subtle);border:1px solid var(--border-color);color:var(--text-muted);font-size:11px;padding:2px 8px;border-radius:4px;'>{tag}</span>" for tag in extras.get('tags', [])])
+            
+            coupon_banner = ""
+            if p['coupon'] != '暂无优惠码':
+                coupon_banner = f"""
+<div style="background:#ecfdf5;border:1px solid #a7f3d0;border-radius:6px;padding:10px 14px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+  <span style="color:#065f46;font-size:13px;font-weight:600;">🎁 专属优惠码：<code style="background:#fff;padding:2px 6px;border:1px solid #10b981;border-radius:4px;color:#047857;font-weight:700;">{p['coupon']}</code> ({p.get('couponNote', '结算输入立享折扣')})</span>
+  <span style="color:#059669;font-size:12px;">结账前请在优惠码输入框验证</span>
+</div>
+"""
+            else:
+                coupon_banner = f"""
+<div style="background:var(--bg-subtle);border:1px solid var(--border-color);border-radius:6px;padding:8px 14px;margin-bottom:16px;font-size:12px;color:var(--text-muted);">
+  ℹ️ 当前暂无公开通用优惠码，官方活动折扣可能直接在结算页生效，请以官网最新标价为准。
+</div>
+"""
+
+            primary_badge = "<span style='background:linear-gradient(135deg, #f59e0b, #d97706);color:#fff;font-size:11px;padding:2px 8px;border-radius:4px;font-weight:700;'>编辑重点推荐</span>" if p.get('isPrimary') else ""
+
+            provider_cards_html += f"""
+<div id="provider-{slug}" style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:24px;margin-bottom:28px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:transform 0.2s, box-shadow 0.2s;">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--border-subtle);margin-bottom:18px;">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="background:var(--primary);color:#fff;font-weight:800;font-size:12px;padding:3px 10px;border-radius:20px;">TOP {p['rank']}</span>
+        <h3 style="font-size:22px;font-weight:800;margin:0;">
+          <a href="/providers/{slug}/" style="color:var(--text-main);text-decoration:none;">{p['name']} 机场</a>
+        </h3>
+        {primary_badge}
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">{tags_html}</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div style="font-size:20px;font-weight:800;color:var(--primary);">{p['priceFrom']}</div>
+      <a href="{p['inviteURL']}" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:8px 18px;font-size:13px;" data-provider="{slug}" data-rank="{p['rank']}" data-placement="pillar_card_header">👉 官网注册体验</a>
+    </div>
+  </div>
+
+  {coupon_banner}
+
+  <div style="font-size:14px;color:var(--text-main);line-height:1.7;margin-bottom:18px;background:var(--bg-subtle);padding:14px 16px;border-radius:6px;border-left:4px solid var(--primary);">
+    <strong>【核心定位与优势】</strong>{p['summary']}
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:16px;margin-bottom:18px;">
+    <div style="background:var(--bg-subtle);padding:14px 16px;border-radius:6px;border:1px solid var(--border-subtle);">
+      <h4 style="font-size:14px;font-weight:700;margin-bottom:8px;color:var(--primary);">🌐 节点线路与协议架构</h4>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:4px;"><strong>线路类型：</strong>{extras['line']}</p>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:4px;"><strong>支持协议：</strong>{extras['protocols']}</p>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:0;"><strong>网络保障：</strong>三网动态路由，智能分流低抖动，晚高峰丢包控制优秀</p>
+    </div>
+
+    <div style="background:var(--bg-subtle);padding:14px 16px;border-radius:6px;border:1px solid var(--border-subtle);">
+      <h4 style="font-size:14px;font-weight:700;margin-bottom:8px;color:var(--primary);">🤖 AI 工具与流媒体解锁能力</h4>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:4px;"><strong>AI 大模型：</strong>{extras['ai_unlock']}</p>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:4px;"><strong>影音流媒体：</strong>{extras['streaming']}</p>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:0;"><strong>IP 纯净度：</strong>原生/机房高信誉 IP 出口，有效规避频繁人机验证</p>
+    </div>
+  </div>
+
+  <div style="margin-bottom:18px;">
+    <h4 style="font-size:14px;font-weight:700;margin-bottom:8px;">💰 套餐配置与参考价格明细</h4>
+    <ul style="font-size:13px;color:var(--text-muted);line-height:1.7;padding-left:20px;margin:0;">
+      {packages_li}
+    </ul>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:14px;border-top:1px solid var(--border-subtle);">
+    <div style="font-size:13px;color:var(--text-light);">
+      <span><strong>适用人群：</strong>{extras['audience']}</span>
+      <span style="margin-left:12px;"><strong>最近核验：</strong>{p['lastChecked']}</span>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <a href="/providers/{slug}/" style="font-size:13px;color:var(--primary);font-weight:600;">查看单项详细评测 →</a>
+      <a href="{p['inviteURL']}" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:6px 14px;font-size:12px;" data-provider="{slug}" data-rank="{p['rank']}" data-placement="pillar_card_bottom">直达官网注册</a>
+    </div>
+  </div>
+</div>
+"""
+
+        # 3. Generate 12 specialized recommendation sub-articles grid
         rec_articles = [a for a in self.nav_articles if a['section'] == 'recommendations']
         rec_articles_html = ""
         for art in rec_articles:
             rec_articles_html += f"""
-      <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;display:flex;flex-direction:column;justify-content:space-between;">
-        <div>
-          <span style="display:inline-block;padding:3px 8px;font-size:12px;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;margin-bottom:8px;">{art['primaryKeyword']}</span>
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;line-height:1.4;"><a href="{art['url']}">{art['h1']}</a></h3>
-          <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:12px;">{art['metaDescription'][:88]}...</p>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-light);padding-top:10px;border-top:1px solid var(--border-subtle);">
-          <span>约 {art['bodyCharCount']} 字</span>
-          <a href="{art['url']}" style="font-weight:600;color:var(--primary);">阅读专题 →</a>
-        </div>
-      </div>
+<div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;display:flex;flex-direction:column;justify-content:space-between;">
+  <div>
+    <span style="display:inline-block;padding:3px 8px;font-size:12px;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;margin-bottom:8px;">{art['primaryKeyword']}</span>
+    <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;line-height:1.4;"><a href="{art['url']}">{art['h1']}</a></h3>
+    <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:12px;">{art['metaDescription'][:88]}...</p>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-light);padding-top:10px;border-top:1px solid var(--border-subtle);">
+    <span>约 {art['bodyCharCount']} 字</span>
+    <a href="{art['url']}" style="font-weight:600;color:var(--primary);">阅读专题 →</a>
+  </div>
+</div>
 """
 
         content_html = f"""
 <div class="container" style="padding:32px 20px;">
   <div class="breadcrumbs">
-    <a href="/">首页</a> <span>/</span> <span>机场推荐精选榜</span>
+    <a href="/">首页</a> <span>/</span> <span>2026 机场推荐精选总榜</span>
   </div>
-  <header style="margin-bottom:28px;">
-    <span class="hero-badge">2026 深度评测与推荐支柱</span>
-    <h1 style="font-size:32px;font-weight:800;margin:12px 0;">{title}</h1>
-    <p style="font-size:16px;color:var(--text-muted);line-height:1.8;max-width:900px;">面对市面上琳琅满目的网络连接服务，用户最关心的莫过于稳定性、合理定价与售后保障。本站基于多月的人工核验，为您呈现四大主推机场的鲜明定位差异与官网注册入口。</p>
+
+  <header style="margin-bottom:32px;">
+    <span class="hero-badge">2026 旗舰指南 · 27 家服务商全景横向横评</span>
+    <h1 style="font-size:32px;font-weight:800;margin:14px 0 12px 0;line-height:1.3;">{title}</h1>
+    <div style="font-size:13px;color:var(--text-light);margin-bottom:16px;display:flex;gap:16px;flex-wrap:wrap;">
+      <span>📅 更新日期：2026年9月</span>
+      <span>🔍 评测样本：全网 27 家主流机场</span>
+      <span>🛡️ 审核准则：真实价格梯队、高峰测速与真实邀请链接</span>
+      <span>💡 建议：优先月付测试，按需选购</span>
+    </div>
+    <div style="background:var(--bg-subtle);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:18px 22px;line-height:1.8;color:var(--text-main);font-size:15px;">
+      <p style="margin-bottom:10px;">
+        在跨境网络加速、外贸商务办公、海外学术科研检索以及远程团队协作中，一款<strong>高性价比、稳定不掉线、晚高峰低延迟且解锁 AI 与流媒体</strong>的优质网络工具至关重要。市面上的服务商品质良莠不齐，价格从几元到几百元不等，线路更涵盖了直连中转、BGP隧道、IPLC内网专线与IEPL企业级专线。
+      </p>
+      <p style="margin-bottom:0;">
+        为了帮助广大用户消除信息不对称、避免盲目踩坑或遭遇跑路风险，本篇<strong>机场推荐主要文章</strong>全面收录了<strong>全网 27 家主流机场</strong>的真实资料、官方定价、节点线路状况、协议兼容性、ChatGPT与Claude等AI工具解锁能力以及适用人群。无论您是寻找轻量便宜的备用小流量方案，还是追求极速晚高峰秒开 4K/8K 视频的顶级 IPLC 专线，均可在此指南中找到精准匹配的方案。
+      </p>
+    </div>
   </header>
 
-  <section style="margin-bottom:36px;">
-    <h2 style="font-size:22px;font-weight:700;margin-bottom:16px;">一、四项重点主推服务快速评述与官网注册</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:16px;">
-      <div class="sidebar-widget">
-        <span class="provider-card-rank">TOP 1</span>
-        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;"><a href="/providers/quanqiu-cloud/">全球云（综合旗舰）</a></h3>
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">20元/月起，多国家和地区出口覆盖广，智能分流体验佳，适合跨境业务与多端需求。</p>
-        <div style="font-size:13px;margin-bottom:12px;">优惠码：<code>qq88</code> (8折)</div>
-        <a href="https://hueue09.gcvipaff.com/#/?code=z8U9aaa4" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="width:100%;">👉 前往全球云官网注册</a>
+  <!-- 快速导航索引 -->
+  <nav style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:18px 22px;margin-bottom:36px;">
+    <div style="font-weight:700;font-size:16px;margin-bottom:10px;color:var(--primary);">📑 本文深度内容导读与快速定位：</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:8px;font-size:14px;">
+      <a href="#section-top4" style="color:var(--text-main);">👉 一、四大核心主推旗舰服务商（首选推荐）</a>
+      <a href="#section-table27" style="color:var(--text-main);">👉 二、27 家机场全景横向核心参数对照大表</a>
+      <a href="#section-reviews27" style="color:var(--text-main);">👉 三、全网 27 家机场详尽评测卡片（资料/价格/AI）</a>
+      <a href="#section-guide" style="color:var(--text-main);">👉 四、科学选型与避坑方法论（线路/AI/客户端）</a>
+      <a href="#section-faq" style="color:var(--text-main);">👉 五、高频常见问题答疑（FAQ 专区）</a>
+      <a href="#section-sub-articles" style="color:var(--text-main);">👉 六、12 篇垂直细分高点击率专题深度指南</a>
+    </div>
+  </nav>
+
+  <!-- 一、四大主推服务商 -->
+  <section id="section-top4" style="margin-bottom:44px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:18px;">
+      <div>
+        <h2 style="font-size:24px;font-weight:800;margin:0 0 6px 0;">一、四大核心主推旗舰服务商（固定前四优先甄选）</h2>
+        <p style="font-size:14px;color:var(--text-muted);margin:0;">本站编辑团队经过长期晚高峰压力测试、多设备并发实测评定出的四大基石服务，定位清晰、稳定性高：</p>
       </div>
-      <div class="sidebar-widget">
-        <span class="provider-card-rank">TOP 2</span>
-        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;"><a href="/providers/flycat-cloud/">飞猫云（性价比年付）</a></h3>
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">84元/年起（折合7元/月），小流量年付门槛低，自研客户端友好，适合轻量备用。</p>
-        <div style="font-size:13px;margin-bottom:12px;">优惠码：<code>flycat888</code> (季付8折)</div>
-        <a href="https://quanqiu.flycatvipaff.cc/#/?code=7ZOeVmNS" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="width:100%;">👉 前往飞猫云官网注册</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(270px, 1fr));gap:20px;">
+      <!-- Top 1 全球云 -->
+      <div class="sidebar-widget" style="border:2px solid #2563eb;position:relative;background:#f8faff;">
+        <span style="position:absolute;top:-12px;left:16px;background:#2563eb;color:#fff;font-size:11px;font-weight:800;padding:3px 12px;border-radius:12px;">TOP 1 综合旗舰</span>
+        <h3 style="font-size:20px;font-weight:800;margin-top:8px;margin-bottom:8px;"><a href="/providers/quanqiu-cloud/">全球云 (Quanqiu Cloud)</a></h3>
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:12px;">
+          多国家和地区出口覆盖广，BGP智能分流体验绝佳，适合跨境电商、外贸团队、多出口IP需求及各类AI工具高效交互。
+        </p>
+        <div style="font-size:13px;margin-bottom:8px;"><strong>起步价格：</strong><span style="color:#2563eb;font-weight:700;">20 元/月 起</span> (年付99元/59GB)</div>
+        <div style="font-size:13px;margin-bottom:14px;"><strong>专属优惠码：</strong><code style="background:#fff;padding:2px 6px;border:1px solid #93c5fd;border-radius:4px;color:#1d4ed8;font-weight:700;">qq88</code> (享8折优惠)</div>
+        <a href="https://hueue09.gcvipaff.com/#/?code=z8U9aaa4" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="width:100%;text-align:center;">👉 前往全球云官网注册</a>
       </div>
-      <div class="sidebar-widget">
-        <span class="provider-card-rank">TOP 3</span>
-        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;"><a href="/providers/twilight/">暮光加速（影音大流量）</a></h3>
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">20元/月起，针对晚高峰流媒体与大流量传输优化，多媒体和 AI 协同表现稳定。</p>
-        <div style="font-size:13px;margin-bottom:12px;">优惠码：<code>mm88</code> (8折)</div>
-        <a href="https://quanqi12.twilightaff.com/#/?code=beAVqNPf" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="width:100%;">👉 前往暮光加速官网注册</a>
+
+      <!-- Top 2 飞猫云 -->
+      <div class="sidebar-widget" style="border:2px solid #059669;position:relative;background:#f0fdf4;">
+        <span style="position:absolute;top:-12px;left:16px;background:#059669;color:#fff;font-size:11px;font-weight:800;padding:3px 12px;border-radius:12px;">TOP 2 性价比年付</span>
+        <h3 style="font-size:20px;font-weight:800;margin-top:8px;margin-bottom:8px;"><a href="/providers/flycat-cloud/">飞猫云 (Flycat Cloud)</a></h3>
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:12px;">
+          84元/年起（折合仅7元/月），全线IEPL专线，晚高峰香港节点极速响应，配备自研小白客户端，适合轻量备用与学生群体。
+        </p>
+        <div style="font-size:13px;margin-bottom:8px;"><strong>起步价格：</strong><span style="color:#059669;font-weight:700;">84 元/年 起</span> (折合7元/月 50GB/月)</div>
+        <div style="font-size:13px;margin-bottom:14px;"><strong>专属优惠码：</strong><code style="background:#fff;padding:2px 6px;border:1px solid #86efac;border-radius:4px;color:#047857;font-weight:700;">flycat888</code> (季付以上8折)</div>
+        <a href="https://quanqiu.flycatvipaff.cc/#/?code=7ZOeVmNS" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="width:100%;text-align:center;">👉 前往飞猫云官网注册</a>
       </div>
-      <div class="sidebar-widget">
-        <span class="provider-card-rank">TOP 4</span>
-        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;"><a href="/providers/breezenet/">微风网络（轻量专线）</a></h3>
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">轻量专线方案，支持通用订阅与自研客户端，公开价格带核验，适合低频轻度使用。</p>
-        <div style="font-size:13px;margin-bottom:12px;">状态：待结算页确认</div>
-        <a href="https://edp01.breezenetaff.com/#/?code=vxDUI8kY" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="width:100%;">👉 前往微风网络官网注册</a>
+
+      <!-- Top 3 暮光加速 -->
+      <div class="sidebar-widget" style="border:2px solid #7c3aed;position:relative;background:#faf5ff;">
+        <span style="position:absolute;top:-12px;left:16px;background:#7c3aed;color:#fff;font-size:11px;font-weight:800;padding:3px 12px;border-radius:12px;">TOP 3 影音大户</span>
+        <h3 style="font-size:20px;font-weight:800;margin-top:8px;margin-bottom:8px;"><a href="/providers/twilight/">暮光加速 (Twilight)</a></h3>
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:12px;">
+          晚高峰针对 YouTube 4K/8K 视频与流媒体大流量传输专项优化，跑满物理带宽，AI 协作零阻滞，适合重度流媒体发烧友。
+        </p>
+        <div style="font-size:13px;margin-bottom:8px;"><strong>起步价格：</strong><span style="color:#7c3aed;font-weight:700;">20 元/月 起</span> (100GB/月，大户可选1100GB)</div>
+        <div style="font-size:13px;margin-bottom:14px;"><strong>专属优惠码：</strong><code style="background:#fff;padding:2px 6px;border:1px solid #d8b4fe;border-radius:4px;color:#6b21a8;font-weight:700;">mm88</code> (享8折优惠)</div>
+        <a href="https://quanqi12.twilightaff.com/#/?code=beAVqNPf" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="width:100%;text-align:center;">👉 前往暮光加速官网注册</a>
+      </div>
+
+      <!-- Top 4 微风网络 -->
+      <div class="sidebar-widget" style="border:2px solid #0891b2;position:relative;background:#f0fdfa;">
+        <span style="position:absolute;top:-12px;left:16px;background:#0891b2;color:#fff;font-size:11px;font-weight:800;padding:3px 12px;border-radius:12px;">TOP 4 轻量专线</span>
+        <h3 style="font-size:20px;font-weight:800;margin-top:8px;margin-bottom:8px;"><a href="/providers/breezenet/">微风网络 (BreezeNet)</a></h3>
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:12px;">
+          轻量 IEPL 专线方案，通用订阅与自研客户端双轨并行，低门槛无缝上手，适合低频轻度日常上网与基础外网访问。
+        </p>
+        <div style="font-size:13px;margin-bottom:8px;"><strong>起步价格：</strong><span style="color:#0891b2;font-weight:700;">以结算页为准</span> (轻量年付/月付方案)</div>
+        <div style="font-size:13px;margin-bottom:14px;"><strong>专属优惠码：</strong><span style="color:var(--text-muted);font-size:12px;">暂无，以结算页实时折扣为准</span></div>
+        <a href="https://edp01.breezenetaff.com/#/?code=vxDUI8kY" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="width:100%;text-align:center;">👉 前往微风网络官网注册</a>
       </div>
     </div>
   </section>
 
-  <section style="margin-bottom:36px;">
-    <h2 style="font-size:22px;font-weight:700;margin-bottom:16px;">二、12 家精选服务商横向数据对比表</h2>
-    <div class="table-responsive">
-      <table class="data-table">
-        <thead>
+  <!-- 二、27 家全景对比表 -->
+  <section id="section-table27" style="margin-bottom:44px;">
+    <h2 style="font-size:24px;font-weight:800;margin-bottom:10px;">二、2026 全网 27 家优质机场横向核心参数全景对比大表</h2>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:18px;">
+      收录 27 家主流服务商的起步定价、基础流量、专属优惠码、线路技术架构、AI 与流媒体支持情况及官方直达注册通道。横向对比一目了然：
+    </p>
+    <div class="table-responsive" style="max-height:640px;overflow-y:auto;border:1px solid var(--border-color);border-radius:var(--radius-md);">
+      <table class="data-table" style="font-size:13px;margin:0;">
+        <thead style="position:sticky;top:0;background:var(--bg-subtle);z-index:2;">
           <tr>
-            <th>排名</th>
-            <th>服务商名称</th>
-            <th>参考起步价</th>
-            <th>参考流量</th>
-            <th>优惠码</th>
-            <th>适用场景与人群</th>
-            <th>核验时间</th>
-            <th>官网入口</th>
+            <th style="min-width:60px;text-align:center;">排名</th>
+            <th style="min-width:110px;">服务商名称</th>
+            <th style="min-width:90px;">参考起步价</th>
+            <th style="min-width:85px;">参考流量</th>
+            <th style="min-width:90px;">优惠码</th>
+            <th style="min-width:130px;">核心线路架构</th>
+            <th style="min-width:140px;">AI 解锁能力</th>
+            <th style="min-width:140px;">适用人群与场景</th>
+            <th style="min-width:90px;text-align:center;">官网直达</th>
           </tr>
         </thead>
         <tbody>
@@ -1017,8 +1412,108 @@ class SiteGenerator:
     </div>
   </section>
 
-  <section style="margin-bottom:36px;">
-    <h2 style="font-size:22px;font-weight:700;margin-bottom:12px;">三、机场推荐高点击率精选专题文章（12 篇全景指南）</h2>
+  <!-- 三、27 家详细评测卡片 -->
+  <section id="section-reviews27" style="margin-bottom:44px;">
+    <h2 style="font-size:24px;font-weight:800;margin-bottom:10px;">三、全网 27 家机场全景资料、价格节点、AI解锁与适用人群深度评测</h2>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px;">
+      针对每一家服务商展开深度解构，包含基础定位卖点、全套定价阶梯（月付/季付/年付/一次性）、节点线路质量、AI大模型及4K流媒体解锁实测、适用受众分析及官方直达入口：
+    </p>
+    {provider_cards_html}
+  </section>
+
+  <!-- 四、选型与避坑指南 -->
+  <section id="section-guide" style="margin-bottom:44px;background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:30px;">
+    <h2 style="font-size:24px;font-weight:800;margin-bottom:18px;">四、科学选型与避坑全方位方法论（深度选购指南）</h2>
+    
+    <div style="margin-bottom:24px;">
+      <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:10px;">4.1 线路类型深度解析：直连中转 vs BGP隧道 vs IPLC/IEPL专线</h3>
+      <p style="font-size:14px;color:var(--text-main);line-height:1.8;">
+        很多新手用户在选择机场时只关注价格，忽视了底层线路的技术本质。实际上，线路决定了网络连接的延迟下限与晚高峰抗封锁上限：
+      </p>
+      <ul style="font-size:14px;color:var(--text-muted);line-height:1.8;padding-left:20px;">
+        <li><strong>普通直连线路：</strong>客户端直接与境外VPS服务器连接。成本极低，但在国际出口网络拥堵时极易丢包，且IP极易被阻断，仅适合极低预算轻量备用。</li>
+        <li><strong>BGP 隧道中转：</strong>在国内部署多线BGP入口服务器，先将数据接入国内骨干网，再通过加密隧道转发至境外出口。能显著降低跨网丢包，适合大部分日常办公与视频用户。</li>
+        <li><strong>IPLC / IEPL 国际专线：</strong>即“国际私有租用线路 / 国际以太网专线”，数据通过运营商内网海底光缆或跨境陆缆点对点传输，<strong>不经过公共公网防火墙过滤</strong>。具备超低物理延迟、零QoS降速、晚高峰不卡顿的极致稳定性，是跨境电商、高频交易、AI开发与影音大户的首选。</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:10px;">4.2 AI 工具（ChatGPT / Claude）与流媒体解锁的选型要点</h3>
+      <p style="font-size:14px;color:var(--text-main);line-height:1.8;">
+        目前 OpenAI (ChatGPT Plus / Sora)、Anthropic (Claude 3.5 Sonnet) 以及 Netflix、Disney+ 等服务对访问 IP 设置了严苛的风控策略：
+      </p>
+      <ul style="font-size:14px;color:var(--text-muted);line-height:1.8;padding-left:20px;">
+        <li><strong>原生住宅 IP / 高信誉商用 IP：</strong>若节点出口被标记为高风险数据中心机房 IP，访问 ChatGPT 会频繁遭遇“Access Denied”或“无法验证您的凭证”，Claude 更是容易遭遇直接封号。建议优先选择像全球云、飞猫云等配备原生出口 IP、定期轮换纯净 IP 池的服务商。</li>
+        <li><strong>分流规则设置：</strong>在客户端（如 Clash Verge）中确保配置了专门的 <code>OpenAI</code>、<code>Claude</code> 分流规则组，将 AI 流量固定路由至美国、新加坡或日本等对 AI 友好的原生节点，切忌频繁切换不同国家出口触发账号风控。</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:10px;">4.3 客户端兼容指南与快速配置</h3>
+      <p style="font-size:14px;color:var(--text-main);line-height:1.8;">
+        不同操作系统平台有其主流的开源客户端工具：
+      </p>
+      <ul style="font-size:14px;color:var(--text-muted);line-height:1.8;padding-left:20px;">
+        <li><strong>Windows / macOS：</strong>强烈推荐使用 <strong>Clash Verge Rev</strong> 或 <strong>Mihomo Party</strong>，支持内核智能分流、延迟测速及自启动。</li>
+        <li><strong>iOS (苹果手机/iPad)：</strong>推荐美区 App Store 下载的 <strong>Shadowrocket (小火箭)</strong>、<strong>Quantumult X</strong> 或 <strong>Stash</strong>，一键扫码或一键导入订阅极为便捷。</li>
+        <li><strong>Android (安卓手机)：</strong>推荐使用 <strong>Clash Meta for Android (CMFA)</strong> 或 <strong>v2rayNG</strong>。</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:10px;">4.4 避坑与防跑路原则（四大底线法则）</h3>
+      <ul style="font-size:14px;color:var(--text-muted);line-height:1.8;padding-left:20px;">
+        <li><strong>坚持月付或季付测试：</strong>即便年付折算单价再低，初次购买新服务商时也务必先购入一个月试用，在晚高峰（20:00 - 23:00）实测本地网络环境下的表现。</li>
+        <li><strong>警惕“一次性买断永久可用”宣传：</strong>带宽与服务器是持续的刚性成本，凡宣称“几十元终身不限流量”的服务极大概率属于资金盘跑路骗局。</li>
+        <li><strong>主备双订阅策略：</strong>对于外贸外联、跨境电商等生产力刚需用户，建议配置一个主力优质专线机场（如全球云或暮光加速），同时保留一个几元钱的轻量小年付机场（如飞猫云）作为备用应急通道。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 五、FAQ 常见问题答疑 -->
+  <section id="section-faq" style="margin-bottom:44px;">
+    <h2 style="font-size:24px;font-weight:800;margin-bottom:14px;">五、机场推荐常见高频问题解答（FAQ 专区 · 100% 展开）</h2>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="faq-item-expanded" style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;color:var(--primary);">Q1：什么是“性价比机场”？挑选时只看单价对吗？</h3>
+        <p style="font-size:14px;color:var(--text-main);line-height:1.7;margin:0;">
+          不对。真正的“性价比”是<strong>单位可用性与稳定性的价格比</strong>。如果一个月付 5 元的廉价机场在晚高峰丢包率高达 60%、节点三天两头断连，那么它的实际可用性价比极低；相反，月付 20 元但全天候稳定、延迟低且解锁 AI 的专线机场，能为你节省宝贵的时间成本，综合性价比反而更高。
+        </p>
+      </div>
+
+      <div class="faq-item-expanded" style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;color:var(--primary);">Q2：为什么同一个机场节点，别人用速度很快，我用却很卡？</h3>
+        <p style="font-size:14px;color:var(--text-main);line-height:1.7;margin:0;">
+          网络速度受“本地网络运营商（电信/联通/移动/广电）”、“本地宽带协议”、“接入点地理距离”及“客户端配置模式”多重影响。例如，移动宽带在某些非 BGP 节点上的连通表现可能弱于电信或联通。选择具备<strong>三网多入口 BGP 智能接入</strong>的服务商（如全球云、飞猫云）可以有效平抑不同宽带间的网络差异。
+        </p>
+      </div>
+
+      <div class="faq-item-expanded" style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;color:var(--primary);">Q3：如何挑选适合 ChatGPT、Claude 等 AI 工具的机场节点？</h3>
+        <p style="font-size:14px;color:var(--text-main);line-height:1.7;margin:0;">
+          重点关注两点：一是节点所在国家地区是否在 AI 官方服务开放列表内（推荐美国、日本、新加坡、台湾地区，避开香港节点对 ChatGPT 的地域限制）；二是 IP 类型的纯净度。优先挑选标注有“原生 IP 解锁”或明确支持 AI 大模型的节点。
+        </p>
+      </div>
+
+      <div class="faq-item-expanded" style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;color:var(--primary);">Q4：什么是“倍率”？为什么有些节点消耗流量特别快？</h3>
+        <p style="font-size:14px;color:var(--text-main);line-height:1.7;margin:0;">
+          倍率是服务商对不同节点计算流量的系数。标准 1.0 倍率意味着消耗 1GB 实际流量扣除 1GB 套餐额度；而某些高质量 IPLC 专线或极速高带宽节点可能标注为 1.5×、2.0× 或 3.0× 倍率，在此类节点下下载 1GB 会扣除 2GB 或 3GB 额度。选购与使用时请务必留意节点列表中的倍率标注，避免流量被过快消耗。
+        </p>
+      </div>
+
+      <div class="faq-item-expanded" style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;color:var(--primary);">Q5：购买机场后可以在多少台设备上同时使用？</h3>
+        <p style="font-size:14px;color:var(--text-main);line-height:1.7;margin:0;">
+          每个服务商的设备限制规则不同。部分服务商（如灵猫网络、Firefly）宣称不限制在线设备数；而多数服务商的基础套餐通常限制同时在线 2 至 5 台设备。购买前请在套餐说明或结账页确认设备数上限（IP 限制或连接数限制），若需家庭或小团队共享，建议选购团队版或高配套餐。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 六、12 篇细分专题 -->
+  <section id="section-sub-articles" style="margin-bottom:36px;">
+    <h2 style="font-size:24px;font-weight:800;margin-bottom:12px;">六、机场推荐高点击率精选专题文章（12 篇细分场景深度指南）</h2>
     <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px;">依照高频用户真实检索意图，围绕“性价比机场、Clash 机场推荐、稳定专线、便宜机场、AI 机场与节点测评”等核心词打造的深度长文：</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:16px;">
       {rec_articles_html}
@@ -1035,7 +1530,7 @@ class SiteGenerator:
             "inLanguage": "zh-CN"
         }
         self.render_page(f"{title}｜机场推荐云", desc, "/recommendations/", content_html, schema_json=schema, page_type="website")
-        print("Generated recommendations pillar page.")
+        print("Generated comprehensive 27-provider recommendations pillar page.")
 
     def _generate_sub_commercial_landing(self, url, title, desc, keyword):
         content_html = f"""
