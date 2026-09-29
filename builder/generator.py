@@ -1983,6 +1983,60 @@ Sitemap: {self.domain}/sitemap.xml
 
         print(f"Generated robots.txt, sitemap.xml ({len(unique_urls)} URLs), rss.xml and 404.html.")
 
+    def generate_search_index(self):
+        index = [
+            {"title": "机场推荐总榜：按预算与场景科学选型", "url": "/recommendations/", "type": "推荐榜", "keywords": "机场推荐 性价比机场 稳定机场"},
+            {"title": "性价比机场推荐：按预算与流量选择指南", "url": "/recommendations/value/", "type": "性价比", "keywords": "便宜机场 低价机场 性价比"},
+            {"title": "Clash 机场推荐：兼容性、套餐与节点选择", "url": "/recommendations/clash/", "type": "Clash", "keywords": "Clash 订阅 客户端"},
+            {"title": "AI 机场推荐：ChatGPT、Claude、Gemini 工具选型", "url": "/recommendations/ai/", "type": "AI工具", "keywords": "AI 机场 ChatGPT Claude"},
+            {"title": "客户端配置教程：Windows/Mac/iOS/Android 全平台指南", "url": "/devices/", "type": "教程", "keywords": "Windows Mac iPhone Android 客户端教程"},
+            {"title": "机场优惠码与折扣活动最新核验", "url": "/coupons/", "type": "优惠码", "keywords": "优惠码 折扣 券 省钱"},
+            {"title": "机场测速与深度测评汇总", "url": "/reviews/", "type": "测评", "keywords": "测评 测速 延迟 体验"},
+            {"title": "节点推荐与出口地区选择指南", "url": "/nodes/", "type": "节点", "keywords": "香港 日本 新加坡 美国 原生节点"},
+            {"title": "常见问题解答与故障排查中心", "url": "/faq/", "type": "问答", "keywords": "FAQ 常见问题 连接失败 节点超时"}
+        ]
+
+        # Add all 24 navigation articles
+        for art in self.nav_articles:
+            sec_type = "推荐" if art["section"] == "recommendations" else "教程"
+            index.append({
+                "title": art["title"].split("｜")[0],
+                "url": art["url"],
+                "type": sec_type,
+                "keywords": f"{art['primaryKeyword']} {' '.join(art.get('secondaryKeywords', []))}"
+            })
+
+        # Add all 27 providers
+        for p in self.providers:
+            index.append({
+                "title": f"{p['name']} 深度测评与使用指南",
+                "url": f"/providers/{p['slug']}/",
+                "type": "服务测评",
+                "keywords": f"{p['name']} {p['summary'][:30]} 优惠码 {p['coupon']}"
+            })
+
+        # Add top 40 FAQs
+        for faq in self.faq100[:40]:
+            index.append({
+                "title": faq["questionTitle"],
+                "url": f"/faq/{faq['slug']}/",
+                "type": "问答",
+                "keywords": f"{faq['primaryKeyword']} {faq['cluster']}"
+            })
+
+        content = "window.SITE_SEARCH_INDEX = " + json.dumps(index, ensure_ascii=False, indent=2) + ";\n"
+        
+        src_path = os.path.join(self.base_dir, "src", "static", "js", "search-data.js")
+        with open(src_path, "w", encoding="utf-8") as f:
+            f.write(content)
+
+        dest_path = os.path.join(self.output_dir, "static", "js", "search-data.js")
+        os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+        with open(dest_path, "w", encoding="utf-8") as f:
+            f.write(content)
+
+        print(f"Generated search-data.js with {len(index)} items.")
+
     def run_all(self):
         print("Starting static site compilation...")
         self.clean_output_dir()
@@ -1992,6 +2046,7 @@ Sitemap: {self.domain}/sitemap.xml
         self.generate_faq_pages()
         self.generate_landing_pages()
         self.generate_sitemap_and_robots_and_rss()
+        self.generate_search_index()
         print("Static site compilation completed successfully!")
 
 if __name__ == "__main__":
