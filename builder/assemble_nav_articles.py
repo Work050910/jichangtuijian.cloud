@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Assemble all 66 navigation articles from builder/sections/*.py into data/navigation_articles.json
+Assemble navigation articles from builder/sections/*.py into data/navigation_articles.json
+Contains:
+- recommendations (12 articles)
+- devices (12 articles) - renamed to 客户端教程
+Total: 24 articles
 """
 
 import os, sys, json, re
@@ -8,15 +12,11 @@ import os, sys, json, re
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, base_dir)
 
-from builder.sections import start_here, service, compare, devices, before_you_buy, recommendations
+from builder.sections import recommendations, devices
 
 modules = [
-    start_here,
-    service,
-    compare,
-    devices,
-    before_you_buy,
-    recommendations
+    recommendations,
+    devices
 ]
 
 all_articles = []
@@ -47,7 +47,7 @@ for m in modules:
         }
         all_articles.append(entry)
 
-assert len(all_articles) == 66, f"Expected 66 articles, got {len(all_articles)}"
+assert len(all_articles) == 24, f"Expected 24 articles, got {len(all_articles)}"
 
 # Verify uniqueness of slugs, urls, and primaryKeywords
 slugs = set()
@@ -65,5 +65,4 @@ output_path = os.path.join(base_dir, "data", "navigation_articles.json")
 with open(output_path, "w", encoding="utf-8") as f:
     json.dump(all_articles, f, ensure_ascii=False, indent=2)
 
-print(f"Successfully assembled {len(all_articles)} unique articles to {output_path}")
-print(f"All 66 slugs unique, all 66 primary keywords unique.")
+print(f"Successfully assembled {len(all_articles)} navigation articles to {output_path}")

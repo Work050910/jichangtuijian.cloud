@@ -42,7 +42,7 @@ try:
     root = tree.getroot()
     ns = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
     locs = [elem.text for elem in root.findall('.//ns:loc', ns)]
-    check(len(locs) >= 200, f"Sitemap contains {len(locs)} indexable URLs (>= 200)")
+    check(len(locs) >= 160, f"Sitemap contains {len(locs)} indexable URLs (>= 160)")
     
     # Check all URLs start with domain
     all_domain = all(loc.startswith(domain) for loc in locs)
@@ -200,11 +200,10 @@ print("\n--- Test 11: HTML Quality, Title, H1, Canonical, Rel='sponsored' Checks
 sample_pages = [
     "/index.html",
     "/recommendations/index.html",
-    "/start-here/index.html",
-    "/compare/index.html",
     "/devices/index.html",
-    "/before-you-buy/index.html",
     "/faq/index.html",
+    "/coupons/index.html",
+    "/reviews/index.html",
     "/about/index.html",
     "/providers/quanqiu-cloud/index.html",
     "/providers/flycat-cloud/index.html"
@@ -336,15 +335,16 @@ check('<details>' not in faq_html and 'class="faq-item-expanded"' in faq_html, "
 # Test 17: Prominent Registration Buttons
 print("\n--- Test 17: Prominent CTA Buttons ---")
 check('class="btn-register-prominent"' in home_html, "Prominent registration button styling present on homepage")
-with open(os.path.join(public_dir, "start-here", "what-is-an-airport-beginner-guide", "index.html"), "r", encoding="utf-8") as f:
+with open(os.path.join(public_dir, "recommendations", "latest-airport-recommendations", "index.html"), "r", encoding="utf-8") as f:
     article_html = f.read()
 check('class="btn-register-prominent"' in article_html, "Prominent registration buttons present in recommendation articles")
 
-# Test 18: 机场推荐 Navigation Item and Articles Validation
-print("\n--- Test 18: '机场推荐' Navigation Item and Articles Validation ---")
+# Test 18: 机场推荐 and 客户端教程 Navigation Items and Articles Validation
+print("\n--- Test 18: '机场推荐' and '客户端教程' Navigation Validation ---")
 with open(os.path.join(public_dir, "index.html"), "r", encoding="utf-8") as f:
     home_html = f.read()
 check('<a href="/recommendations/" class="nav-link">机场推荐</a>' in home_html, "Navigation bar contains explicit '机场推荐' link to /recommendations/")
+check('<a href="/devices/" class="nav-link">客户端教程</a>' in home_html, "Navigation bar contains explicit '客户端教程' link to /devices/")
 
 rec_articles = [a for a in nav_articles if a['section'] == 'recommendations']
 check(len(rec_articles) == 12, f"Total 12 high-CTR recommendation articles configured (actual: {len(rec_articles)})")
@@ -357,6 +357,18 @@ for a in rec_articles:
         errors.append(f"Missing recommendation article: {a_path}")
 
 check(all_rec_articles_exist, "All 12 high-CTR recommendation articles exist on disk in public/recommendations/")
+
+dev_articles = [a for a in nav_articles if a['section'] == 'devices']
+check(len(dev_articles) == 12, f"Total 12 client tutorial articles configured (actual: {len(dev_articles)})")
+
+all_dev_articles_exist = True
+for a in dev_articles:
+    a_path = os.path.join(public_dir, a['url'].strip("/"), "index.html")
+    if not os.path.exists(a_path):
+        all_dev_articles_exist = False
+        errors.append(f"Missing client tutorial article: {a_path}")
+
+check(all_dev_articles_exist, "All 12 client tutorial articles exist on disk in public/devices/")
 
 print("\n" + "=" * 70)
 print(f"Summary: {passed} PASSED, {len(errors)} FAILED, {len(warnings)} WARNINGS")

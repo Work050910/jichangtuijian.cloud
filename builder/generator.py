@@ -291,24 +291,24 @@ class SiteGenerator:
   <div class="container">
     <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;">
       <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;">
-        <h2 style="font-size:18px;font-weight:700;margin-bottom:8px;"><a href="/start-here/">新手开始指南</a></h2>
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">面向初次接触机场的新手，梳理核心概念、订阅导入步骤、防踩坑建议与首轮排错清单。</p>
-        <a href="/start-here/" style="font-size:13px;font-weight:600;">查看新手入门文章 →</a>
+        <h2 style="font-size:18px;font-weight:700;margin-bottom:8px;"><a href="/recommendations/">机场推荐榜单</a></h2>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">精选 27 家主流服务商，按预算与场景深度横评，提供专属优惠码与官网直达。</p>
+        <a href="/recommendations/" style="font-size:13px;font-weight:600;">查看机场推荐榜单 →</a>
       </div>
       <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;">
-        <h2 style="font-size:18px;font-weight:700;margin-bottom:8px;"><a href="/compare/">方案横向对比</a></h2>
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">按每月 20 元预算、低价年付、大流量影音、单人多端与专线中转进行清晰透明的横向比对。</p>
-        <a href="/compare/" style="font-size:13px;font-weight:600;">查阅套餐对比报告 →</a>
+        <h2 style="font-size:18px;font-weight:700;margin-bottom:8px;"><a href="/devices/">客户端配置教程</a></h2>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">覆盖 Windows、macOS、iPhone、iPad、Android 及软路由等平台的一键导入与分流调优。</p>
+        <a href="/devices/" style="font-size:13px;font-weight:600;">查看客户端教程 →</a>
       </div>
       <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;">
-        <h2 style="font-size:18px;font-weight:700;margin-bottom:8px;"><a href="/devices/">跨设备教程入口</a></h2>
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">覆盖 Windows、macOS、iPhone、iPad、Android 及软路由等平台的一键导入与分流配置实操。</p>
-        <a href="/devices/" style="font-size:13px;font-weight:600;">按设备查看客户端教程 →</a>
+        <h2 style="font-size:18px;font-weight:700;margin-bottom:8px;"><a href="/coupons/">机场优惠码核验</a></h2>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">持续更新各服务商最新有效优惠码、折扣周期与结算防坑说明，确保真实省钱。</p>
+        <a href="/coupons/" style="font-size:13px;font-weight:600;">查看最新优惠码 →</a>
       </div>
       <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;">
-        <h2 style="font-size:18px;font-weight:700;margin-bottom:8px;"><a href="/service/">服务资料与说明</a></h2>
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">提供 27 家服务商的基础资料、协议支持（SS/Trojan）、节点分布与工单支持边界解析。</p>
-        <a href="/service/" style="font-size:13px;font-weight:600;">浏览服务商资料库 →</a>
+        <h2 style="font-size:18px;font-weight:700;margin-bottom:8px;"><a href="/faq/">常见问题答疑库</a></h2>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">精选 100 问网络连接、节点选择、倍率计算及客户端故障排查解答，全部展开阅读。</p>
+        <a href="/faq/" style="font-size:13px;font-weight:600;">浏览常见问题解答 →</a>
       </div>
     </div>
   </div>
@@ -338,7 +338,7 @@ class SiteGenerator:
         <h2 class="section-title">主流机场方案多维快速对比表</h2>
         <div class="section-subtitle">前四名固定排在表格前列，数据带最后核验日期，所有外链严格添加 rel="sponsored nofollow noopener"</div>
       </div>
-      <a href="/compare/" style="font-size:14px;font-weight:600;">查看完整对比指南 →</a>
+      <a href="/recommendations/" style="font-size:14px;font-weight:600;">查看完整推荐指南 →</a>
     </div>
     <div class="table-responsive">
       <table class="data-table">
@@ -454,7 +454,7 @@ class SiteGenerator:
           <li><a href="/recommendations/" style="font-weight:600;">• 2026 机场推荐精选总榜</a></li>
           <li><a href="/recommendations/value/" style="font-weight:600;">• 性价比机场推荐与对比</a></li>
           <li><a href="/recommendations/clash/" style="font-weight:600;">• Clash 客户端机场配置指南</a></li>
-          <li><a href="/before-you-buy/" style="font-weight:600;">• 购买机场前 8 项必看须知</a></li>
+          <li><a href="/devices/" style="font-weight:600;">• 客户端多平台配置教程</a></li>
         </ul>
       </div>
     </article>
@@ -483,7 +483,7 @@ class SiteGenerator:
         <div class="widget-title">使用指南与选型</div>
         <ul style="list-style:none;font-size:13px;display:flex;flex-direction:column;gap:8px;">
           <li><a href="/recommendations/">• 机场推荐精选榜</a></li>
-          <li><a href="/start-here/">• 新手快速上手指南</a></li>
+          <li><a href="/devices/">• 客户端配置教程</a></li>
           <li><a href="/faq/">• 常见问题答疑库</a></li>
         </ul>
       </div>
@@ -587,8 +587,8 @@ class SiteGenerator:
         <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">相关阅读与下一步建议</h3>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
           <li><a href="/recommendations/">• 查看当前年份机场推荐精选榜单与服务横评</a></li>
-          <li><a href="/compare/">• 查阅主流机场套餐价格与流量对比报告</a></li>
-          <li><a href="/before-you-buy/">• 购买机场前 8 项避坑与自我核对清单</a></li>
+          <li><a href="/devices/">• 跨平台客户端配置教程（Windows / Mac / iOS / Android）</a></li>
+          <li><a href="/coupons/">• 机场优惠码与最新省钱折扣核验</a></li>
           <li><a href="/faq/">• 常见问题中心：100 个高频疑问解答</a></li>
         </ul>
       </div>
@@ -756,9 +756,9 @@ class SiteGenerator:
         <h3 style="font-size:16px;font-weight:700;margin-bottom:12px;">相关推荐与参考页面</h3>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14px;">
           <li><a href="/recommendations/">• 机场推荐精选总榜：按需求与预算科学选择</a></li>
-          <li><a href="/compare/">• 机场套餐横向对比与流量核算指南</a></li>
-          <li><a href="/start-here/">• 机场新手入门与客户端导入教程</a></li>
-          <li><a href="/before-you-buy/">• 购买前须知与防坑核验清单</a></li>
+          <li><a href="/devices/">• 客户端多平台配置教程（Windows / Mac / iOS / Android）</a></li>
+          <li><a href="/coupons/">• 机场优惠码与折扣活动最新核验</a></li>
+          <li><a href="/faq/">• 常见问题答疑与排错中心</a></li>
         </ul>
       </div>
     </article>
@@ -776,10 +776,10 @@ class SiteGenerator:
       <div class="sidebar-widget">
         <div class="widget-title">知识库索引</div>
         <ul style="list-style:none;font-size:13px;display:flex;flex-direction:column;gap:8px;">
-          <li><a href="/start-here/">• 新手开始教程</a></li>
-          <li><a href="/compare/">• 价格与流量对比</a></li>
-          <li><a href="/devices/">• 设备客户端配置</a></li>
-          <li><a href="/before-you-buy/">• 购买前避坑须知</a></li>
+          <li><a href="/recommendations/">• 机场推荐精选</a></li>
+          <li><a href="/devices/">• 客户端配置教程</a></li>
+          <li><a href="/coupons/">• 优惠码核验</a></li>
+          <li><a href="/faq/">• 常见问题答疑</a></li>
         </ul>
       </div>
     </aside>
@@ -859,52 +859,16 @@ class SiteGenerator:
         print("Generated 100 FAQ individual pages and 5 paginated hub pages.")
 
     def generate_landing_pages(self):
-        # 1. 新手开始 (/start-here/)
-        self._generate_section_hub(
-            "start-here",
-            "新手开始",
-            "机场新手入门教程与实操指南",
-            "专为初次接触网络连接服务的新手打造，涵盖核心概念科普、客户端订阅导入、按月计费分析、防踩坑清单与首轮连接排查技巧。",
-            self.nav_articles
-        )
-
-        # 2. 服务资料 (/service/)
-        self._generate_section_hub(
-            "service",
-            "服务资料",
-            "机场服务资料与网络协议说明",
-            "汇集 27 家服务商底层信息、SS 与 Trojan 协议兼容性、香港与日本等节点分布特征，以及售后工单支持边界等透明资料。",
-            self.nav_articles
-        )
-
-        # 3. 方案对比 (/compare/)
-        self._generate_section_hub(
-            "compare",
-            "方案对比",
-            "主流机场套餐横向对比与流量选型",
-            "从 20 元月付预算、百元小流量年付、重度影音大户到多设备合租等不同维度展开真实透明对比，助您精打细算选对套餐。",
-            self.nav_articles
-        )
-
-        # 4. 设备入口 (/devices/)
+        # 1. 客户端教程 (/devices/)
         self._generate_section_hub(
             "devices",
-            "设备入口",
+            "客户端教程",
             "全平台客户端配置与使用指南",
             "系统覆盖 Windows、macOS、iPhone、iPad、Android 手机与软路由的客户端选型、订阅导入、分流规则设置及后台防杀优化。",
             self.nav_articles
         )
 
-        # 5. 使用须知 (/before-you-buy/)
-        self._generate_section_hub(
-            "before-you-buy",
-            "使用须知",
-            "购买机场前必看的 8 项核验须知",
-            "深入解析虚拟商品退款规则、账号密码安全、支付方式避坑、长期买断风险与识别虚假营销话术，保障您的合法权益与资金安全。",
-            self.nav_articles
-        )
-
-        # 6. 综合推荐支柱页 (/recommendations/)
+        # 2. 综合推荐支柱页 (/recommendations/)
         self._generate_recommendations_pillar()
 
         # 7. 性价比机场落地页 (/recommendations/value/)

@@ -5,7 +5,7 @@ def get_articles():
     articles = [
         {
             "section": "devices",
-            "sectionName": "设备入口",
+            "sectionName": "客户端教程",
             "slug": "windows-client-subscription-setup",
             "title": "Windows 系统机场订阅配置指南：从客户端安装到规则启动｜机场推荐云",
             "h1": "Windows 平台客户端全流程部署指南：Clash Verge Rev 安装、订阅导入与分流调优",
@@ -43,7 +43,7 @@ def get_articles():
         },
         {
             "section": "devices",
-            "sectionName": "设备入口",
+            "sectionName": "客户端教程",
             "slug": "macos-client-recommendations-and-best-practices",
             "title": "macOS 平台机场客户端推荐与配置最佳实践｜机场推荐云",
             "h1": "macOS 客户端推荐与最佳实践：系统菜单栏集成、分流配置与权限调优",
@@ -87,7 +87,7 @@ def get_articles():
         },
         {
             "section": "devices",
-            "sectionName": "设备入口",
+            "sectionName": "客户端教程",
             "slug": "ios-shadowrocket-setup-and-routing",
             "title": "iPhone 与 iPad 平台 Shadowrocket 订阅导入与分流配置｜机场推荐云",
             "h1": "iOS 平台小火箭 (Shadowrocket) 零基础实战：从美区安装、订阅拉取到高级分流",
@@ -128,7 +128,7 @@ def get_articles():
         },
         {
             "section": "devices",
-            "sectionName": "设备入口",
+            "sectionName": "客户端教程",
             "slug": "android-client-setup-and-battery-optimization",
             "title": "Android 手机与平板机场客户端设置与电池优化避坑指南｜机场推荐云",
             "h1": "Android 平台客户端配置与深度电池优化避坑：防后台休眠断连实战手册",
@@ -169,7 +169,7 @@ def get_articles():
         },
         {
             "section": "devices",
-            "sectionName": "设备入口",
+            "sectionName": "客户端教程",
             "slug": "cfw-and-clash-verge-setup-guide",
             "title": "Clash for Windows 与 Clash Verge 配置详解与常见报错处理｜机场推荐云",
             "h1": "Clash Verge 配置全景实战指南：内核切换、脚本扩展与常见系统级报错解决",
@@ -209,7 +209,7 @@ def get_articles():
         },
         {
             "section": "devices",
-            "sectionName": "设备入口",
+            "sectionName": "客户端教程",
             "slug": "sing-box-universal-client-guide",
             "title": "sing-box 新一代通用内核跨平台客户端上手教程｜机场推荐云",
             "h1": "sing-box 新一代通用内核全方位上手指南：架构演进、规则配置与跨平台实战",
@@ -248,7 +248,7 @@ def get_articles():
         },
         {
             "section": "devices",
-            "sectionName": "设备入口",
+            "sectionName": "客户端教程",
             "slug": "cross-platform-subscription-sync-security",
             "title": "跨平台多设备同步机场订阅链接的安全注意事项｜机场推荐云",
             "h1": "跨平台多设备同步机场订阅安全指南：Token 防泄露、公网传输与定期重置",
@@ -287,7 +287,7 @@ def get_articles():
         },
         {
             "section": "devices",
-            "sectionName": "设备入口",
+            "sectionName": "客户端教程",
             "slug": "soft-router-airport-deployment-concepts",
             "title": "家里软路由与路由器端部署机场订阅的基础概念与适用场景｜机场推荐云",
             "h1": "软路由与家庭智能网关部署基础：透明代理架构、分流策略与适用场景全景",
@@ -322,7 +322,7 @@ def get_articles():
         },
         {
             "section": "devices",
-            "sectionName": "设备入口",
+            "sectionName": "客户端教程",
             "slug": "dual-system-proxy-settings-and-conflicts",
             "title": "办公室双系统切换环境下的代理设置与网络冲突排查｜机场推荐云",
             "h1": "双系统与虚拟机网络代理设置全景：NAT 模式、桥接网络与本地端口冲突排错",
@@ -363,7 +363,7 @@ WSL2 在 Windows 底层采用轻量 Hyper-V 虚拟机架构，每次启动生成
         },
         {
             "section": "devices",
-            "sectionName": "设备入口",
+            "sectionName": "客户端教程",
             "slug": "tablet-background-keepalive-settings",
             "title": "平板移动端离线下载与大流量任务下的客户端保活设置｜机场推荐云",
             "h1": "平板移动端大任务保活指南：iPadOS 与 Android 平板长时间挂机防中断策略",
@@ -404,7 +404,7 @@ WSL2 在 Windows 底层采用轻量 Hyper-V 虚拟机架构，每次启动生成
         },
         {
             "section": "devices",
-            "sectionName": "设备入口",
+            "sectionName": "客户端教程",
             "slug": "tv-box-and-smart-screen-setup",
             "title": "TV 电视盒子与大屏设备安装机场客户端的操作要点｜机场推荐云",
             "h1": "电视盒子与大屏智能设备代理安装实操：Android TV、Apple TV 适配全攻略",
@@ -442,7 +442,7 @@ WSL2 在 Windows 底层采用轻量 Hyper-V 虚拟机架构，每次启动生成
         },
         {
             "section": "devices",
-            "sectionName": "设备入口",
+            "sectionName": "客户端教程",
             "slug": "network-permissions-certificates-and-firewall",
             "title": "设备网络权限、系统证书与本地安全软件冲突解决指南｜机场推荐云",
             "h1": "系统安全软件与代理防火墙冲突全景排错：证书信任、端口拦截与驱动修复",
