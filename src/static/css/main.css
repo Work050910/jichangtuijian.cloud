@@ -715,13 +715,8 @@ img {
    ========================================================================== */
 
 .toc-widget {
-  position: sticky;
-  top: 85px;
-  max-height: calc(100vh - 110px);
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--border-color) transparent;
-  z-index: 10;
+  /* Normal document flow: stays in place and does not stick or follow user down the screen */
+  position: relative;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
@@ -729,17 +724,21 @@ img {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
-.toc-widget::-webkit-scrollbar {
+.toc-nav {
+  margin-top: 6px;
+  max-height: 480px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+}
+
+.toc-nav::-webkit-scrollbar {
   width: 4px;
 }
 
-.toc-widget::-webkit-scrollbar-thumb {
+.toc-nav::-webkit-scrollbar-thumb {
   background-color: var(--border-color);
   border-radius: 4px;
-}
-
-.toc-nav {
-  margin-top: 6px;
 }
 
 .toc-list {

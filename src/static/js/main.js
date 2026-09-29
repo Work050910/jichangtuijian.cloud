@@ -284,11 +284,16 @@ function initArticleTocAndScrollspy() {
       const parentItem = targetLink.closest('.toc-item');
       if (parentItem) parentItem.classList.add('active');
 
-      // Scroll TOC container so active link stays in visible area
-      const linkRect = targetLink.getBoundingClientRect();
-      const widgetRect = tocWidget.getBoundingClientRect();
-      if (linkRect.top < widgetRect.top || linkRect.bottom > widgetRect.bottom) {
-        targetLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      // Keep active TOC link within visible range of its scrollable container without moving window
+      const tocNav = tocWidget.querySelector('.toc-nav');
+      if (tocNav) {
+        const itemTop = targetLink.offsetTop;
+        const itemBottom = itemTop + targetLink.offsetHeight;
+        if (itemTop < tocNav.scrollTop) {
+          tocNav.scrollTop = itemTop - 10;
+        } else if (itemBottom > tocNav.scrollTop + tocNav.clientHeight) {
+          tocNav.scrollTop = itemBottom - tocNav.clientHeight + 10;
+        }
       }
     }
   }
