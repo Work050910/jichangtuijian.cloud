@@ -224,12 +224,15 @@ class SiteGenerator:
         cards_html = ""
         for p in self.providers[:12]:
             rank = p['rank']
+            is_recommend = (rank == 1 or p['slug'] == 'quanqiu-cloud')
+            card_class = "provider-card is-station-recommend" if is_recommend else "provider-card"
+            recommend_badge = '<span class="badge-station-recommend" style="margin-left:6px;">🔥 站长推荐</span>' if is_recommend else ""
             coupon_html = f'<div class="provider-coupon-box"><span>优惠码：<span class="coupon-code">{p["coupon"]}</span></span><button class="btn-copy" data-coupon="{p["coupon"]}" data-provider="{p["slug"]}">复制</button></div>' if p['coupon'] != '暂无优惠码' else '<div class="provider-coupon-box"><span style="color:var(--text-light)">暂无优惠码</span></div>'
             
             cards_html += f"""
-<div class="provider-card">
+<div class="{card_class}">
   <span class="provider-card-rank">TOP {rank}</span>
-  <h3 class="provider-card-title"><a href="/providers/{p['slug']}/">{p['name']}</a></h3>
+  <h3 class="provider-card-title"><a href="/providers/{p['slug']}/">{p['name']}</a>{recommend_badge}</h3>
   <div class="provider-card-price">{p['priceFrom']}</div>
   <div class="provider-card-summary">{p['summary']}</div>
   {coupon_html}
@@ -242,10 +245,12 @@ class SiteGenerator:
 
         table_rows = ""
         for p in self.providers[:8]:
+            is_rec = (p['rank'] == 1 or p['slug'] == 'quanqiu-cloud')
+            rec_tag = ' <span class="badge-station-recommend" style="font-size:10px;padding:1px 6px;margin-left:4px;">🔥 站长推荐</span>' if is_rec else ""
             table_rows += f"""
 <tr>
   <td><strong>{p['rank']}</strong></td>
-  <td><a href="/providers/{p['slug']}/"><strong>{p['name']}</strong></a></td>
+  <td><a href="/providers/{p['slug']}/"><strong>{p['name']}</strong></a>{rec_tag}</td>
   <td>{p['priceFrom']}</td>
   <td>{p['trafficFrom']}</td>
   <td><code>{p['coupon']}</code></td>
@@ -600,23 +605,85 @@ class SiteGenerator:
         </ul>
       </div>
       <div class="sidebar-widget">
-        <div class="widget-title">核心服务商官网直达</div>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <div>
-            <div style="font-weight:700;font-size:13px;margin-bottom:4px;">1. 全球云 (Rank 1 旗舰)</div>
-            <a href="https://hueue09.gcvipaff.com/#/?code=z8U9aaa4" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:6px 10px;font-size:12px;width:100%;">官网注册体验</a>
+        <div class="widget-title" style="display:flex;align-items:center;justify-content:space-between;">
+          <span>核心服务商官网直达</span>
+          <span style="font-size:11px;font-weight:600;color:var(--primary);background:var(--primary-light);padding:2px 6px;border-radius:4px;">人工核验</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <!-- Card 1: 全球云 (站长推荐) -->
+          <div class="sidebar-airport-card is-station-recommend">
+            <div class="sidebar-card-header">
+              <div class="sidebar-card-title">
+                <span class="sidebar-card-rank">TOP 1</span>
+                <strong>全球云</strong>
+              </div>
+              <span class="badge-station-recommend">🔥 站长推荐</span>
+            </div>
+            <div class="sidebar-card-meta">
+              <span class="sidebar-card-price">20元/月起</span>
+              <span class="sidebar-card-tag">8折码: <strong>qq88</strong></span>
+            </div>
+            <div style="font-size:12px;color:var(--text-muted);line-height:1.4;">
+              旗舰专线集群 · 30+地区IP · AI/流媒体4K全解
+            </div>
+            <a href="https://hueue09.gcvipaff.com/#/?code=z8U9aaa4" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:8px 12px;font-size:13px;width:100%;" data-provider="quanqiu-cloud" data-rank="1" data-placement="sidebar_rec">👉 前往全球云官网注册</a>
           </div>
-          <div>
-            <div style="font-weight:700;font-size:13px;margin-bottom:4px;">2. 飞猫云 (Rank 2 性价比)</div>
-            <a href="https://quanqiu.flycatvipaff.cc/#/?code=7ZOeVmNS" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:6px 10px;font-size:12px;width:100%;">官网注册体验</a>
+
+          <!-- Card 2: 飞猫云 -->
+          <div class="sidebar-airport-card">
+            <div class="sidebar-card-header">
+              <div class="sidebar-card-title">
+                <span class="sidebar-card-rank">TOP 2</span>
+                <strong>飞猫云</strong>
+              </div>
+              <span style="font-size:11px;color:#059669;background:#ecfdf5;border:1px solid #a7f3d0;padding:2px 6px;border-radius:9999px;font-weight:700;">性价比先锋</span>
+            </div>
+            <div class="sidebar-card-meta">
+              <span class="sidebar-card-price">84元/年起</span>
+              <span class="sidebar-card-tag">折合 7元/月</span>
+            </div>
+            <div style="font-size:12px;color:var(--text-muted);line-height:1.4;">
+              纯正 IEPL 专线 · 自研一键客户端 · 8折码 flycat888
+            </div>
+            <a href="https://quanqiu.flycatvipaff.cc/#/?code=7ZOeVmNS" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:8px 12px;font-size:13px;width:100%;" data-provider="flycat-cloud" data-rank="2" data-placement="sidebar_rec">👉 前往飞猫云官网注册</a>
           </div>
-          <div>
-            <div style="font-weight:700;font-size:13px;margin-bottom:4px;">3. 暮光加速 (Rank 3 影音大流)</div>
-            <a href="https://quanqi12.twilightaff.com/#/?code=beAVqNPf" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:6px 10px;font-size:12px;width:100%;">官网注册体验</a>
+
+          <!-- Card 3: 暮光加速 -->
+          <div class="sidebar-airport-card">
+            <div class="sidebar-card-header">
+              <div class="sidebar-card-title">
+                <span class="sidebar-card-rank">TOP 3</span>
+                <strong>暮光加速</strong>
+              </div>
+              <span style="font-size:11px;color:#7c3aed;background:#f5f3ff;border:1px solid #ddd6fe;padding:2px 6px;border-radius:9999px;font-weight:700;">晚高峰影音</span>
+            </div>
+            <div class="sidebar-card-meta">
+              <span class="sidebar-card-price">20元/月起</span>
+              <span class="sidebar-card-tag">8折码: <strong>mm88</strong></span>
+            </div>
+            <div style="font-size:12px;color:var(--text-muted);line-height:1.4;">
+              晚高峰大带宽传输 · 4K/8K 流媒体极速秒开 · 大流量
+            </div>
+            <a href="https://quanqi12.twilightaff.com/#/?code=beAVqNPf" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:8px 12px;font-size:13px;width:100%;" data-provider="twilight" data-rank="3" data-placement="sidebar_rec">👉 前往暮光加速官网注册</a>
           </div>
-          <div>
-            <div style="font-weight:700;font-size:13px;margin-bottom:4px;">4. 微风网络 (Rank 4 商务稳定)</div>
-            <a href="https://edp01.breezenetaff.com/#/?code=vxDUI8kY" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:6px 10px;font-size:12px;width:100%;">官网注册体验</a>
+
+          <!-- Card 4: 微风网络 -->
+          <div class="sidebar-airport-card">
+            <div class="sidebar-card-header">
+              <div class="sidebar-card-title">
+                <span class="sidebar-card-rank">TOP 4</span>
+                <strong>微风网络</strong>
+              </div>
+              <span style="font-size:11px;color:#2563eb;background:#eff6ff;border:1px solid #bfdbfe;padding:2px 6px;border-radius:9999px;font-weight:700;">商务稳定</span>
+            </div>
+            <div class="sidebar-card-meta">
+              <span class="sidebar-card-price">轻量专线</span>
+              <span class="sidebar-card-tag">开箱即用</span>
+            </div>
+            <div style="font-size:12px;color:var(--text-muted);line-height:1.4;">
+              商务多设备协同 · 通用订阅支持 · 结算页核验
+            </div>
+            <a href="https://edp01.breezenetaff.com/#/?code=vxDUI8kY" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:8px 12px;font-size:13px;width:100%;" data-provider="breezenet" data-rank="4" data-placement="sidebar_rec">👉 前往微风网络官网注册</a>
           </div>
         </div>
       </div>
@@ -1168,7 +1235,7 @@ class SiteGenerator:
   <td>
     <a href="/providers/{slug}/" style="font-weight:700;color:var(--text-main);display:flex;align-items:center;gap:6px;">
       {p['name']}
-      {"<span style='background:#fef3c7;color:#92400e;font-size:10px;padding:2px 6px;border-radius:3px;font-weight:600;'>主推</span>" if p.get('isPrimary') else ""}
+      {"<span class='badge-station-recommend' style='font-size:10px;padding:1px 6px;'>🔥 站长推荐</span>" if (p['rank'] == 1 or slug == 'quanqiu-cloud') else ("<span style='background:#fef3c7;color:#92400e;font-size:10px;padding:2px 6px;border-radius:3px;font-weight:600;'>主推</span>" if p.get('isPrimary') else "")}
     </a>
   </td>
   <td><span style="font-weight:700;color:var(--primary);">{p['priceFrom']}</span></td>
@@ -1217,10 +1284,22 @@ class SiteGenerator:
 </div>
 """
 
-            primary_badge = "<span style='background:linear-gradient(135deg, #f59e0b, #d97706);color:#fff;font-size:11px;padding:2px 8px;border-radius:4px;font-weight:700;'>编辑重点推荐</span>" if p.get('isPrimary') else ""
+            is_station_rec = (slug == 'quanqiu-cloud' or p['rank'] == 1)
+            if is_station_rec:
+                primary_badge = "<span class='badge-station-recommend'>🔥 站长推荐</span> <span style='background:linear-gradient(135deg, #f59e0b, #d97706);color:#fff;font-size:11px;padding:3px 8px;border-radius:9999px;font-weight:700;'>综合第一旗舰</span>"
+                card_style = "background:linear-gradient(165deg, rgba(254, 243, 199, 0.22) 0%, var(--bg-surface) 100%);border:2px solid #f59e0b;border-radius:var(--radius-lg);padding:24px;margin-bottom:28px;box-shadow:0 8px 24px rgba(245, 158, 11, 0.16);transition:transform 0.2s, box-shadow 0.2s;"
+                header_ribbon = """<div style="display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg, #ef4444 0%, #f59e0b 100%);color:#fff;padding:8px 16px;border-radius:8px;margin-bottom:18px;font-weight:800;font-size:13px;box-shadow:0 2px 8px rgba(239, 68, 68, 0.25);">
+  <span style="display:flex;align-items:center;gap:6px;">👑 站长力荐 · 全网综合首选旗舰机场</span>
+  <span style="font-size:11px;background:rgba(255,255,255,0.22);padding:2px 10px;border-radius:20px;border:1px solid rgba(255,255,255,0.35);">长期主用认证 · 晚高峰稳定</span>
+</div>"""
+            else:
+                primary_badge = "<span style='background:linear-gradient(135deg, #f59e0b, #d97706);color:#fff;font-size:11px;padding:2px 8px;border-radius:4px;font-weight:700;'>编辑重点推荐</span>" if p.get('isPrimary') else ""
+                card_style = "background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:24px;margin-bottom:28px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:transform 0.2s, box-shadow 0.2s;"
+                header_ribbon = ""
 
             provider_cards_html += f"""
-<div id="provider-{slug}" style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:24px;margin-bottom:28px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:transform 0.2s, box-shadow 0.2s;">
+<div id="provider-{slug}" style="{card_style}">
+  {header_ribbon}
   <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--border-subtle);margin-bottom:18px;">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
@@ -1559,8 +1638,11 @@ class SiteGenerator:
   <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:24px;margin-bottom:32px;">
     <h2 style="font-size:20px;font-weight:700;margin-bottom:16px;">四项重点推荐服务在“{keyword}”场景中的适用分析与官网注册</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;">
-      <div style="padding:16px;border:1px solid var(--border-subtle);border-radius:var(--radius-sm);background:var(--bg-page);">
-        <h3 style="font-size:16px;font-weight:700;"><a href="/providers/quanqiu-cloud/">1. 全球云 (Rank 1 旗舰)</a></h3>
+      <div style="padding:16px;border:2px solid #f59e0b;border-radius:var(--radius-sm);background:linear-gradient(165deg, rgba(254, 243, 199, 0.25) 0%, var(--bg-page) 100%);box-shadow:0 4px 14px rgba(245, 158, 11, 0.16);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <h3 style="font-size:16px;font-weight:700;margin:0;"><a href="/providers/quanqiu-cloud/">1. 全球云 (Rank 1 旗舰)</a></h3>
+          <span class="badge-station-recommend">🔥 站长推荐</span>
+        </div>
         <p style="font-size:13px;color:var(--text-muted);margin:8px 0;">20元/月起，多地区专线中转，晚高峰稳定性强，适合对连接质量有较高要求的{keyword}场景。</p>
         <a href="https://hueue09.gcvipaff.com/#/?code=z8U9aaa4" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:8px 12px;font-size:13px;width:100%;">👉 前往全球云官网注册</a>
       </div>
@@ -1604,8 +1686,11 @@ class SiteGenerator:
     
     <h2>二、四项主推服务定位与官网注册对照</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;margin:20px 0;">
-      <div style="padding:16px;border:1px solid var(--border-color);border-radius:var(--radius-sm);">
-        <h3>1. 全球云 (TOP 1)</h3>
+      <div style="padding:16px;border:2px solid #f59e0b;border-radius:var(--radius-sm);background:linear-gradient(165deg, rgba(254, 243, 199, 0.25) 0%, var(--bg-page) 100%);box-shadow:0 4px 14px rgba(245, 158, 11, 0.16);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <h3 style="margin:0;">1. 全球云 (TOP 1)</h3>
+          <span class="badge-station-recommend">🔥 站长推荐</span>
+        </div>
         <p style="font-size:13px;color:var(--text-muted);margin:8px 0;">多地区专线中转，综合表现首选，优惠码 qq88 享 8 折。</p>
         <a href="https://hueue09.gcvipaff.com/#/?code=z8U9aaa4" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:6px 12px;font-size:12px;width:100%;">👉 前往全球云官网注册</a>
       </div>

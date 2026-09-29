@@ -427,6 +427,118 @@ img {
   cursor: pointer;
 }
 
+.provider-card.is-station-recommend {
+  border: 2px solid #f59e0b;
+  background: linear-gradient(165deg, rgba(254, 243, 199, 0.22) 0%, var(--bg-surface) 100%);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.16);
+}
+
+.provider-card.is-station-recommend:hover {
+  border-color: #d97706;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.26);
+}
+
+.badge-station-recommend {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: linear-gradient(135deg, #ef4444 0%, #f59e0b 100%);
+  color: #ffffff !important;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.35);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Sidebar Airport Cards */
+.sidebar-airport-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 13px 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-airport-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary-border);
+}
+
+.sidebar-airport-card.is-station-recommend {
+  background: linear-gradient(145deg, rgba(254, 243, 199, 0.28) 0%, var(--bg-surface) 100%);
+  border: 1.5px solid #f59e0b;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.18);
+}
+
+.sidebar-airport-card.is-station-recommend:hover {
+  border-color: #d97706;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.28);
+}
+
+.sidebar-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sidebar-card-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.sidebar-card-rank {
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--primary-border);
+}
+
+.sidebar-airport-card.is-station-recommend .sidebar-card-rank {
+  background: #fef3c7;
+  color: #b45309;
+  border-color: #fde68a;
+}
+
+.sidebar-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.sidebar-card-price {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.sidebar-airport-card.is-station-recommend .sidebar-card-price {
+  color: #b45309;
+}
+
+.sidebar-card-tag {
+  font-size: 11px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--text-muted);
+}
+
 .provider-card-actions {
   display: flex;
   flex-direction: column;
