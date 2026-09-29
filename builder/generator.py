@@ -600,13 +600,25 @@ class SiteGenerator:
         </ul>
       </div>
       <div class="sidebar-widget">
-        <div class="widget-title">核心服务商直达</div>
-        <ul style="list-style:none;font-size:13px;display:flex;flex-direction:column;gap:8px;">
-          <li><a href="/providers/quanqiu-cloud/">全球云测评 (TOP 1)</a></li>
-          <li><a href="/providers/flycat-cloud/">飞猫云测评 (TOP 2)</a></li>
-          <li><a href="/providers/twilight/">暮光加速测评 (TOP 3)</a></li>
-          <li><a href="/providers/breezenet/">微风网络测评 (TOP 4)</a></li>
-        </ul>
+        <div class="widget-title">核心服务商官网直达</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div>
+            <div style="font-weight:700;font-size:13px;margin-bottom:4px;">1. 全球云 (Rank 1 旗舰)</div>
+            <a href="https://hueue09.gcvipaff.com/#/?code=z8U9aaa4" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:6px 10px;font-size:12px;width:100%;">官网注册体验</a>
+          </div>
+          <div>
+            <div style="font-weight:700;font-size:13px;margin-bottom:4px;">2. 飞猫云 (Rank 2 性价比)</div>
+            <a href="https://quanqiu.flycatvipaff.cc/#/?code=7ZOeVmNS" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:6px 10px;font-size:12px;width:100%;">官网注册体验</a>
+          </div>
+          <div>
+            <div style="font-weight:700;font-size:13px;margin-bottom:4px;">3. 暮光加速 (Rank 3 影音大流)</div>
+            <a href="https://quanqi12.twilightaff.com/#/?code=beAVqNPf" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:6px 10px;font-size:12px;width:100%;">官网注册体验</a>
+          </div>
+          <div>
+            <div style="font-weight:700;font-size:13px;margin-bottom:4px;">4. 微风网络 (Rank 4 商务稳定)</div>
+            <a href="https://edp01.breezenetaff.com/#/?code=vxDUI8kY" rel="sponsored nofollow noopener" target="_blank" class="btn-register-prominent" style="padding:6px 10px;font-size:12px;width:100%;">官网注册体验</a>
+          </div>
+        </div>
       </div>
       <div class="sidebar-widget">
         <div class="widget-title">信息核验声明</div>
