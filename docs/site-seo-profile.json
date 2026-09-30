@@ -148,6 +148,44 @@
         "设备网络权限、系统证书与本地安全软件冲突解决指南"
       ],
       "articleCount": 12
+    },
+    {
+      "label": "100个常见问题",
+      "url": "/faq/",
+      "type": "faq",
+      "isContentSection": true,
+      "isCommercial": true,
+      "primaryKeyword": "100个常见问题解答",
+      "supportingKeywords": [
+        "100个常见问题",
+        "机场常见问题",
+        "连接问题排查",
+        "网络工具问答",
+        "机场支持"
+      ],
+      "articleSeeds": [
+        "AI 生成 100 个不重复的 FAQ 问答系统"
+      ],
+      "articleCount": 100
+    },
+    {
+      "label": "关于我们",
+      "url": "/about/",
+      "type": "trust",
+      "isContentSection": false,
+      "isCommercial": false,
+      "primaryKeyword": "关于我们与编辑原则",
+      "supportingKeywords": [
+        "关于我们",
+        "编辑原则",
+        "评测方法",
+        "纠错政策",
+        "合作披露"
+      ],
+      "articleSeeds": [
+        "关于机场推荐云与测评编辑说明"
+      ],
+      "articleCount": 1
     }
   ],
   "additionalCommercialSections": [

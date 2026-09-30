@@ -814,7 +814,10 @@ class SiteGenerator:
             for faq in page_faqs:
                 cards_html += f"""
 <div class="faq-item-expanded" style="margin-bottom:16px;">
-  <span class="hero-badge" style="font-size:11px;padding:2px 8px;">{faq['cluster']}</span>
+  <div style="display:flex;gap:6px;align-items:center;margin-bottom:8px;flex-wrap:wrap;">
+    <span class="hero-badge" style="font-size:11px;padding:2px 8px;background:var(--primary);color:#fff;font-weight:700;">第 {faq['id']} 问</span>
+    <span class="hero-badge" style="font-size:11px;padding:2px 8px;">{faq['cluster']}</span>
+  </div>
   <h2 style="font-size:18px;font-weight:700;margin:8px 0;"><a href="/faq/{faq['slug']}/">{faq['questionTitle']}</a></h2>
   <p style="font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:10px;">{faq['summary']}</p>
   <div style="font-size:12px;color:var(--text-light);display:flex;justify-content:space-between;align-items:center;">
@@ -823,24 +826,44 @@ class SiteGenerator:
   </div>
 </div>
 """
-            pagination_html = '<div style="display:flex;justify-content:center;gap:8px;margin-top:24px;">'
+            pagination_html = '<div style="display:flex;justify-content:center;gap:8px;margin-top:24px;flex-wrap:wrap;">'
+            page_labels = {1: "1 (1-20问)", 2: "2 (21-40问)", 3: "3 (41-60问)", 4: "4 (61-80问)", 5: "5 (81-100问)"}
             for i in range(1, total_pages + 1):
                 p_link = "/faq/" if i == 1 else f"/faq/page/{i}/"
-                is_cur = ' style="font-weight:700;background:var(--primary);color:#fff;"' if i == p_idx else ' style="background:var(--bg-surface);border:1px solid var(--border-color);"'
-                pagination_html += f'<a href="{p_link}" class="nav-link"{is_cur}>{i}</a>'
+                is_cur = ' style="font-weight:700;background:var(--primary);color:#fff;padding:6px 12px;"' if i == p_idx else ' style="background:var(--bg-surface);border:1px solid var(--border-color);padding:6px 12px;"'
+                pagination_html += f'<a href="{p_link}" class="nav-link"{is_cur}>{page_labels[i]}</a>'
             pagination_html += '</div>'
 
+            b_title = "100个常见问题" if p_idx == 1 else f"100个常见问题 (第 {p_idx} 页)"
             content_html = f"""
 <div class="container" style="padding:32px 20px;">
   <div class="breadcrumbs">
-    <a href="/">首页</a> <span>/</span> <span>常见问题中心 (第 {p_idx} 页)</span>
+    <a href="/">首页</a> <span>/</span> <span>{b_title}</span>
   </div>
   <header style="margin-bottom:24px;">
-    <h1 style="font-size:30px;font-weight:800;margin-bottom:8px;">机场推荐、Clash 与节点常见问题解答中心 (全部展开)</h1>
-    <p style="font-size:15px;color:var(--text-muted);">系统整理 100 个真实高频疑问，涵盖选型原则、Clash 配置、SS/Trojan 协议、节点与倍率、多设备使用及购买前避坑，内容直接全部展开可见。</p>
+    <h1 style="font-size:30px;font-weight:800;margin-bottom:8px;">100 个机场推荐与节点常见问题解答中心 (全部展开)</h1>
+    <p style="font-size:15px;color:var(--text-muted);">系统整理 100 个真实高频疑问，涵盖选型原则、Clash 配置、SS/Trojan 协议、节点与倍率、多设备使用及购买前避坑，全部 100 问平铺展开阅读。</p>
   </header>
 
   <div style="max-width:880px;">
+    <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:18px 20px;margin-bottom:24px;">
+      <div style="font-size:15px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+        <span>📚 100 个核心高频问答全景索引（9 大主题配额矩阵）</span>
+        <span style="font-size:12px;color:var(--primary);font-weight:700;background:var(--primary-light);padding:3px 10px;border-radius:9999px;">共 100 问已全部收录</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:12px;">
+        <span class="hero-badge" style="padding:4px 10px;">1. 机场推荐与选型 (18问)</span>
+        <span class="hero-badge" style="padding:4px 10px;">2. 价格套餐与计费 (14问)</span>
+        <span class="hero-badge" style="padding:4px 10px;">3. 客户端配置使用 (10问)</span>
+        <span class="hero-badge" style="padding:4px 10px;">4. 协议与技术机制 (10问)</span>
+        <span class="hero-badge" style="padding:4px 10px;">5. 专线与节点质量 (8问)</span>
+        <span class="hero-badge" style="padding:4px 10px;">6. 速度延迟与稳定 (14问)</span>
+        <span class="hero-badge" style="padding:4px 10px;">7. 流媒体与 AI 解锁 (10问)</span>
+        <span class="hero-badge" style="padding:4px 10px;">8. 多设备并发支持 (8问)</span>
+        <span class="hero-badge" style="padding:4px 10px;">9. 安全合规购买须知 (8问)</span>
+      </div>
+    </div>
+
     {cards_html}
     {pagination_html}
   </div>
@@ -849,12 +872,12 @@ class SiteGenerator:
             schema = {
                 "@context": "https://schema.org",
                 "@type": "CollectionPage",
-                "name": f"机场推荐云常见问题中心 (第 {p_idx} 页)",
+                "name": f"100 个机场推荐常见问题解答中心 (第 {p_idx} 页)｜机场推荐云",
                 "url": f"{self.domain}{hub_url}",
                 "description": "系统整理 100 个真实高频疑问，涵盖选型原则、Clash 配置、SS/Trojan 协议、节点与倍率及多设备使用。",
                 "inLanguage": "zh-CN"
             }
-            self.render_page(f"常见问题中心 (第 {p_idx} 页)｜机场推荐云", "系统整理 100 个真实高频疑问，涵盖选型原则、Clash 配置、SS/Trojan 协议、节点与倍率及多设备使用。", hub_url, content_html, schema_json=schema, page_type="website")
+            self.render_page(f"100 个常见问题解答中心 (第 {p_idx} 页)｜机场推荐云", "系统整理 100 个真实高频疑问，涵盖选型原则、Clash 配置、SS/Trojan 协议、节点与倍率及多设备使用。", hub_url, content_html, schema_json=schema, page_type="website")
 
         print("Generated 100 FAQ individual pages and 5 paginated hub pages.")
 
@@ -1874,7 +1897,7 @@ class SiteGenerator:
     def _generate_trust_pages(self):
         trust_pages = [
             ("about", "关于我们：机场推荐与测评编辑说明", "介绍机场推荐云的创立初衷、服务受众、内容定位、核验流程与防坑理念，说明我们如何为新手提供透明参考。"),
-            ("contact", "联系我们：机场资料纠错与 Telegram 交流频道", "提供真实资料纠错通道、商务咨询与意见反馈说明，欢迎读者协助我们保持信息的准确与及时。"),
+            ("contact", "联系我们：机场资料纠错与反馈通道", "提供真实资料纠错通道、商务咨询与意见反馈说明，欢迎读者协助我们保持信息的准确与及时。"),
             ("editorial-policy", "机场推荐编辑原则与独立性声明", "系统阐述本站在选题策划、排序依据、事实与观点区分以及利益冲突防范方面的严格准则。"),
             ("methodology", "机场测评方法论与数据核验标准", "详述本站在收集服务商资料、核实价格梯度、评估线路兼容性与记录最后核验时间时的标准化流程。"),
             ("corrections", "资料纠错政策与更新日志规范", "说明本站如何接收读者反馈、核对错误事实、更新页面内容以及记录重大变更日志的透明机制。"),
@@ -1886,7 +1909,28 @@ class SiteGenerator:
         
         for slug, title, desc in trust_pages:
             extra_content = ""
-            if slug == "contact":
+            if slug == "about":
+                extra_content = """
+<div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:24px;margin:24px 0;">
+  <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;color:var(--text-main);">关于机场推荐云（jichangtuijian.cloud）</h3>
+  <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:12px;"><strong>机场推荐云</strong>是一个专注于跨平台网络客户端配置教程、主流机场方案横向对比、高性价比选型以及 100 问答疑的综合技术资料库。我们立足跨境办公、海外科研检索、外贸业务与网络隐私防护等中立应用场景，为中文新手提供清晰、客观、透明的选型参考。</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:16px;margin-top:16px;">
+    <div style="background:var(--bg-subtle);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border-subtle);">
+      <div style="font-weight:700;color:var(--primary);margin-bottom:6px;">🎯 选型原则</div>
+      <div style="font-size:13px;color:var(--text-muted);">坚持按需选购、优先月付试用；拒绝一次性盲目买断多年期，规避跑路与服务降级风险。</div>
+    </div>
+    <div style="background:var(--bg-subtle);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border-subtle);">
+      <div style="font-weight:700;color:var(--primary);margin-bottom:6px;">🔍 真实核验</div>
+      <div style="font-size:13px;color:var(--text-muted);">所有价格、节点线路、倍率扣费与优惠码均标注人工最后核验日期，下单前以实时结算页为准。</div>
+    </div>
+    <div style="background:var(--bg-subtle);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border-subtle);">
+      <div style="font-weight:700;color:var(--primary);margin-bottom:6px;">🛡️ 中立合规</div>
+      <div style="font-size:13px;color:var(--text-muted);">严守中立工具与网络隐私语境，绝不夸大宣传“100%稳定”等绝对化用语，坚持客观测评。</div>
+    </div>
+  </div>
+</div>
+"""
+            elif slug == "contact":
                 extra_content = f"""
 <div style="background:var(--primary-light);border:1px solid var(--primary-border);border-radius:var(--radius-md);padding:24px;margin:24px 0;">
   <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--text-main);">官方纠错与反馈通道</h3>
