@@ -4,6 +4,164 @@ from datetime import datetime
 def clean_item_text(text):
     return re.sub(r'^\d+\.\s*', '', text)
 
+def render_inline(text):
+    if not text:
+        return ""
+    parts = re.split(r"(<[^>]+>.*?</[^>]+>|<[^>]+/>|<[^>]+>)", text, flags=re.DOTALL)
+    out = []
+    for i, p in enumerate(parts):
+        if i % 2 == 1:
+            out.append(p)
+        else:
+            esc = html.escape(p)
+            esc = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", esc)
+            esc = re.sub(r"`([^`]+)`", r"<code>\1</code>", esc)
+            out.append(esc)
+    return "".join(out)
+
+def parse_markdown_body(body):
+    body_html = ""
+    for block in body.split("\n\n"):
+        block = block.strip()
+        if not block:
+            continue
+        if block.startswith("#### "):
+            h_text = block.replace("#### ", "", 1)
+            body_html += f"<h3>{render_inline(h_text)}</h3>\n"
+        elif block.startswith("### "):
+            h_text = block.replace("### ", "", 1)
+            body_html += f"<h2>{render_inline(h_text)}</h2>\n"
+        elif block.startswith("## "):
+            h_text = block.replace("## ", "", 1)
+            body_html += f"<h2>{render_inline(h_text)}</h2>\n"
+        elif block.startswith("> "):
+            clean_quote = block.replace("> ", "", 1)
+            body_html += f"<blockquote><p>{render_inline(clean_quote)}</p></blockquote>\n"
+        elif re.match(r"^(\d+)\.\s+\*\*(.+?)\*\*[:：]?", block):
+            m = re.match(r"^(\d+)\.\s+\*\*(.+?)\*\*[:：]?", block)
+            num = m.group(1)
+            title = re.sub(r'[:：\s]+$', '', m.group(2).strip())
+            lines = block.split("\n")
+            top_numbers = re.findall(r"^\d+\.\s+", block, re.MULTILINE)
+            has_sub = any(l.strip().startswith("- ") or l.strip().startswith("* ") for l in lines[1:])
+            has_aff = "btn-register-prominent" in block or "rel=\"sponsored" in block or "<a " in block
+
+            # If there are multiple numbered items in this single block (e.g. 1. ... \n 2. ...), parse as nested list
+            if len(top_numbers) > 1 and not has_aff:
+                items = []
+                current_item = []
+                for line in lines:
+                    if re.match(r"^\d+\.\s+", line):
+                        if current_item:
+                            items.append("\n".join(current_item))
+                        current_item = [re.sub(r"^\d+\.\s*", "", line)]
+                    else:
+                        current_item.append(line)
+                if current_item:
+                    items.append("\n".join(current_item))
+
+                rendered_items = []
+                for it in items:
+                    sub_lines = it.split("\n")
+                    first_line = render_inline(sub_lines[0].strip())
+                    sub_bullets = [s.strip()[2:].strip() for s in sub_lines[1:] if s.strip().startswith("- ") or s.strip().startswith("* ")]
+                    if sub_bullets:
+                        sub_html = "<ul>" + "".join([f"<li>{render_inline(sb)}</li>" for sb in sub_bullets]) + "</ul>"
+                        rendered_items.append(f"<li>{first_line}{sub_html}</li>")
+                    else:
+                        rendered_items.append(f"<li>{first_line}</li>")
+                body_html += "<ol>" + "".join(rendered_items) + "</ol>\n"
+            elif has_sub or has_aff:
+                bullet_items = []
+                cta_html = ""
+                for sub_line in lines[1:]:
+                    sub_line = sub_line.strip()
+                    if not sub_line:
+                        continue
+                    if sub_line.startswith("- ") or sub_line.startswith("* "):
+                        sub_line = sub_line[2:].strip()
+                    
+                    if "<a " in sub_line and ("btn-register-prominent" in sub_line or "rel=\"sponsored" in sub_line):
+                        a_m = re.search(r"(<a\s+[^>]+>.*?</a>)", sub_line)
+                        if a_m:
+                            cta_html = a_m.group(1)
+                        else:
+                            cta_html = sub_line
+                    elif any(sub_line.startswith(prefix) for prefix in ["**官方注册直达：**", "**官网入口：**", "**官网直达：**", "**官方通道：**"]):
+                        a_m = re.search(r"(<a\s+[^>]+>.*?</a>)", sub_line)
+                        if a_m:
+                            cta_html = a_m.group(1)
+                        else:
+                            bullet_items.append(render_inline(sub_line))
+                    else:
+                        bullet_items.append(render_inline(sub_line))
+
+                if has_aff or cta_html:
+                    is_rec = "全球云" in title
+                    badge = "<span class=\"badge-station-recommend\">🔥 站长推荐</span>" if is_rec else ""
+                    card_cls = "article-provider-card is-station-recommend" if is_rec else "article-provider-card"
+                    cta_div = f"<div class=\"article-provider-card-action\">{cta_html}</div>" if cta_html else ""
+                    bullets_li = "".join(f"<li>{it}</li>" for it in bullet_items)
+                    body_html += f"""<div class="{card_cls}">
+  <div class="article-provider-card-header">
+    <div class="article-provider-card-title">
+      <span class="provider-rank-badge">TOP {num}</span>
+      <span class="provider-name-text"><strong>{title}</strong></span>
+    </div>
+    {badge}
+  </div>
+  <ul class="article-provider-card-details">
+    {bullets_li}
+  </ul>
+  {cta_div}
+</div>\n"""
+                else:
+                    bullets_li = "".join(f"<li>{it}</li>" for it in bullet_items)
+                    body_html += f"""<div class="article-feature-card">
+  <div class="article-feature-card-header">
+    <span class="feature-rank-badge">{num}</span>
+    <strong>{title}</strong>
+  </div>
+  <ul class="article-feature-card-details">
+    {bullets_li}
+  </ul>
+</div>\n"""
+            else:
+                items = block.split("\n")
+                rendered_items = []
+                for it in items:
+                    it_s = it.strip()
+                    if not it_s:
+                        continue
+                    clean_it = re.sub(r"^\d+\.\s*", "", it_s)
+                    rendered_items.append(f"<li>{render_inline(clean_it)}</li>")
+                body_html += "<ol>" + "".join(rendered_items) + "</ol>\n"
+        elif block.startswith("- "):
+            items = block.split("\n")
+            rendered_items = []
+            for item in items:
+                item_s = item.strip()
+                if not item_s:
+                    continue
+                if item_s.startswith("- "):
+                    item_s = item_s[2:].strip()
+                rendered_items.append(f"<li>{render_inline(item_s)}</li>")
+            body_html += "<ul>" + "".join(rendered_items) + "</ul>\n"
+        elif re.match(r"^\d+\.\s+", block):
+            items = block.split("\n")
+            rendered_items = []
+            for it in items:
+                it_s = it.strip()
+                if not it_s:
+                    continue
+                clean_it = re.sub(r"^\d+\.\s*", "", it_s)
+                rendered_items.append(f"<li>{render_inline(clean_it)}</li>")
+            body_html += "<ol>" + "".join(rendered_items) + "</ol>\n"
+        else:
+            body_html += f"<p>{render_inline(block)}</p>\n"
+    return body_html
+
+
 class SiteGenerator:
     def __init__(self, base_dir):
         self.base_dir = base_dir
@@ -391,21 +549,7 @@ class SiteGenerator:
             coupon = p['coupon']
             price = p['priceFrom']
             invite = p['inviteURL']
-            body_html = ""
-            for line in p['body'].split("\n\n"):
-                if line.startswith("### "):
-                    body_html += f"<h2>{html.escape(line.replace('### ', ''))}</h2>\n"
-                elif line.startswith("## "):
-                    body_html += f"<h2>{html.escape(line.replace('## ', ''))}</h2>\n"
-                elif line.startswith("- "):
-                    items = line.split("\n")
-                    body_html += "<ul>" + "".join([f"<li>{html.escape(item.replace('- ', ''))}</li>" for item in items if item.strip()]) + "</ul>\n"
-                elif line.startswith("1. "):
-                    items = line.split("\n")
-                    cleaned_items = [clean_item_text(item) for item in items if item.strip()]
-                    body_html += "<ol>" + "".join([f"<li>{html.escape(it)}</li>" for it in cleaned_items]) + "</ol>\n"
-                else:
-                    body_html += f"<p>{html.escape(line)}</p>\n"
+            body_html = parse_markdown_body(p['body'])
 
             coupon_box = f'<div class="provider-coupon-box" style="margin:20px 0;"><span>专属优惠码：<strong class="coupon-code">{coupon}</strong></span><button class="btn-copy" data-coupon="{coupon}" data-provider="{slug}">点击复制优惠码</button></div>' if coupon != '暂无优惠码' else ''
 
@@ -515,52 +659,7 @@ class SiteGenerator:
             sec_name = art['sectionName']
             sec_id = art['section']
             
-            body_html = ""
-            for line in art['body'].split("\n\n"):
-                line_str = line.strip()
-                if not line_str:
-                    continue
-                if line_str.startswith("#### "):
-                    body_html += f"<h3>{html.escape(line_str.replace('#### ', '', 1))}</h3>\n"
-                elif line_str.startswith("### "):
-                    body_html += f"<h2>{html.escape(line_str.replace('### ', '', 1))}</h2>\n"
-                elif line_str.startswith("## "):
-                    body_html += f"<h2>{html.escape(line_str.replace('## ', '', 1))}</h2>\n"
-                elif line_str.startswith("> "):
-                    clean_quote = line_str.replace('> ', '', 1)
-                    clean_quote = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', html.escape(clean_quote))
-                    body_html += f"<blockquote><p>{clean_quote}</p></blockquote>\n"
-                elif line_str.startswith("1. "):
-                    items = line_str.split("\n")
-                    cleaned_items = [clean_item_text(item) for item in items if item.strip()]
-                    rendered_items = []
-                    for it in cleaned_items:
-                        esc = html.escape(it)
-                        esc = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc)
-                        rendered_items.append(f"<li>{esc}</li>")
-                    body_html += "<ol>" + "".join(rendered_items) + "</ol>\n"
-                elif line_str.startswith("- "):
-                    items = line_str.split("\n")
-                    rendered_items = []
-                    for item in items:
-                        item_s = item.strip()
-                        if not item_s:
-                            continue
-                        if item_s.startswith("- "):
-                            item_s = item_s[2:].strip()
-                        if '<a href=' in item_s or '<div' in item_s:
-                            rendered_items.append(f"<li style=\"list-style:none;margin-top:8px;\">{item_s}</li>")
-                        else:
-                            clean_text = html.escape(item_s)
-                            clean_text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', clean_text)
-                            rendered_items.append(f"<li>{clean_text}</li>")
-                    body_html += "<ul style=\"margin-bottom:16px;\">" + "".join(rendered_items) + "</ul>\n"
-                elif '<a href=' in line_str and 'btn-register-prominent' in line_str:
-                    body_html += line_str + "\n"
-                else:
-                    escaped_p = html.escape(line_str)
-                    escaped_p = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', escaped_p)
-                    body_html += f"<p>{escaped_p}</p>\n"
+            body_html = parse_markdown_body(art['body'])
 
             content_html = f"""
 <div class="container">
